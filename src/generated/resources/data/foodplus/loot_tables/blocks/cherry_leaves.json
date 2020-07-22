@@ -2,12 +2,12 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "pear_leaves0",
+      "name": "cherry_leaves0",
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "foodplus:pear_fruit"
+          "name": "foodplus:cherry_fruit"
         }
       ],
       "conditions": [

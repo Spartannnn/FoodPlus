@@ -6,21 +6,19 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.NonNullList;
 
-public class PearLeaveBlock extends AbstractFPLeavesBlock {
+public class CherryLeaveBlock extends AbstractFPLeavesBlock {
 
-    public PearLeaveBlock(Properties properties) {
+    public CherryLeaveBlock(Properties properties) {
         super(properties);
     }
 
     @Override
     public NonNullList<Item> getDrops() {
-        return NonNullList.withSize(1, ModItems.PEAR_FRUIT.get());
+        return NonNullList.withSize(1, ModItems.CHERRY_FRUIT.get());
     }
 
     @Override
     public Block dataBlock() {
         return this;
     }
-
-
 }

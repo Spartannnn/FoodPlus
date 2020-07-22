@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import me.spartann.foodplus.FoodPlusMod;
-import me.spartann.foodplus.common.loottable.ILootTableData;
+import me.spartann.foodplus.common.loottable.ILootTableMultiDropsData;
 import me.spartann.foodplus.common.registries.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
@@ -37,8 +37,8 @@ public class LootTablesDataGen extends LootTableProvider {
         System.out.println("Generating Block loot tables");
 
         ModBlocks.BLOCKS.getEntries().stream().map(r -> r.get()).forEach(b -> {
-            if (b instanceof ILootTableData) {
-                LootTable.Builder table = tablemap.getOrDefault(b, multipleDrops((ILootTableData) b));
+            if (b instanceof ILootTableMultiDropsData) {
+                LootTable.Builder table = tablemap.getOrDefault(b, multipleDrops((ILootTableMultiDropsData) b));
                 tablemap.put(b, table);
             } else {
                 LootTable.Builder table = tablemap.getOrDefault(b, selfDrop(b));
@@ -68,7 +68,7 @@ public class LootTablesDataGen extends LootTableProvider {
         return LootTable.builder().addLootPool(pool);
     }
 
-    public LootTable.Builder multipleDrops(ILootTableData data) {
+    public LootTable.Builder multipleDrops(ILootTableMultiDropsData data) {
         List<LootEntry.Builder<?>> entries = Lists.newArrayList();
         if(data.getDrops() == null)
             return this.selfDrop(data.dataBlock());

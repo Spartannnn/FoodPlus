@@ -13,12 +13,13 @@ public class ModDataGenerator {
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         if (event.includeServer()) {
-            System.out.println("Starting common data gen");
+            FoodPlusMod.LOGGER.info("Starting common data gen");
             generator.addProvider(new LootTablesDataGen(generator));
+            generator.addProvider(new RecipeDataGen(generator));
         }
 
         if (event.includeClient()) {
-            System.out.println("Starting client data gen");
+            FoodPlusMod.LOGGER.info("Starting client data gen");
             generator.addProvider(new LanguagesDataGen(generator));
         }
     }

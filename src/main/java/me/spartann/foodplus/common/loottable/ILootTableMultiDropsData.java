@@ -7,7 +7,7 @@ import net.minecraft.world.storage.loot.conditions.ILootCondition;
 
 import java.util.List;
 
-public interface ILootTableData {
+public interface ILootTableMultiDropsData {
 
     NonNullList<Item> getDrops();
 

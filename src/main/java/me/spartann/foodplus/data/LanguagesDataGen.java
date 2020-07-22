@@ -23,12 +23,18 @@ public class LanguagesDataGen extends LanguageProvider {
 
     private void items() {
         this.addItem(ModItems.TEST_FOOD, "Test Food");
+        this.addItem(ModItems.HARVEST_TOOL, "Harvesting Tool");
+        this.addItem(ModItems.PEAR_FRUIT, "Pear");
+        this.addItem(ModItems.CHERRY_FRUIT, "Cherry");
     }
 
     private void blocks() {
         this.addBlock(ModBlocks.PEAR_LOG, "Pear Log");
         this.addBlock(ModBlocks.PEAR_LEAVES, "Pear Leaves");
         this.addBlock(ModBlocks.PEAR_SAPLING, "Pear Sapling");
+        this.addBlock(ModBlocks.CHERRY_LOG, "Cherry Log");
+        this.addBlock(ModBlocks.CHERRY_LEAVES, "Cherry Leaves");
+        this.addBlock(ModBlocks.CHERRY_SAPLING, "Cherry Sapling");
     }
 
 

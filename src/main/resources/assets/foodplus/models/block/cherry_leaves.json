@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "foodplus:blocks/cherry_leaves"
+  }
+}

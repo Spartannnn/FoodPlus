@@ -17,8 +17,12 @@
         {
           "condition": "minecraft:match_tool",
           "predicate": {
-            "item": "minecraft:apple"
+            "item": "foodplus:harvest_tool"
           }
+        },
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.35
         }
       ]
     }

@@ -1,6 +1,12 @@
 {
+  "block.foodplus.cherry_leaves": "Cherry Leaves",
+  "block.foodplus.cherry_log": "Cherry Log",
+  "block.foodplus.cherry_sapling": "Cherry Sapling",
   "block.foodplus.pear_leaves": "Pear Leaves",
   "block.foodplus.pear_log": "Pear Log",
   "block.foodplus.pear_sapling": "Pear Sapling",
+  "item.foodplus.cherry_fruit": "Cherry",
+  "item.foodplus.harvest_tool": "Harvesting Tool",
+  "item.foodplus.pear_fruit": "Pear",
   "item.foodplus.test_food": "Test Food"
 }
