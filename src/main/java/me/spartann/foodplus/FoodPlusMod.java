@@ -1,9 +1,7 @@
 package me.spartann.foodplus;
 
 import me.spartann.foodplus.common.event.SetupEvents;
-import me.spartann.foodplus.common.registries.ModBlocks;
-import me.spartann.foodplus.common.registries.ModFeatures;
-import me.spartann.foodplus.common.registries.ModItems;
+import me.spartann.foodplus.common.registries.*;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -29,9 +27,13 @@ public class FoodPlusMod {
         modEventBus.addListener(this::doClientStuff);
 
         //Register methods
+        ModTileEntities.TILE_ENTITIES.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
         ModFeatures.FEATURES.register(modEventBus);
+        ModRecipeTypes.SERIALIZERS.register(modEventBus);
+        ModContainers.CONTAINERS.register(modEventBus);
+
 
         MinecraftForge.EVENT_BUS.register(this);
     }

@@ -1,0 +1,7 @@
+{
+  "parent": "cube/cube_column",
+  "textures": {
+    "end": "foodplus:blocks/cherry_log",
+    "side": "foodplus:blocks/pear_log"
+  }
+}

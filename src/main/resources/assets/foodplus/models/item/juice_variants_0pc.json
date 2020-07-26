@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "foodplus:items/juice_variants_layer0",
+    "layer1": "foodplus:items/juice_variants_layer1_0pc"
+  }
+}

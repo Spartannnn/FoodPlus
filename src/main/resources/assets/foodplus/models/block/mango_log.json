@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "foodplus:blocks/mango_log_top",
+    "side": "foodplus:blocks/mango_log"
+  }
+}

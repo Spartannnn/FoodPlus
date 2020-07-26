@@ -1,7 +1,9 @@
 package me.spartann.foodplus.common.util;
 
+import me.spartann.foodplus.FoodPlusMod;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import org.apache.commons.lang3.Validate;
 
 public class TextComponentUtil {
@@ -14,6 +16,8 @@ public class TextComponentUtil {
 
     public static StringTextComponent stringTextComponent(Message... messages) {
         Validate.noNullElements(messages, "Message objects can not be null");
+        if(messages.length == 0)
+            return new StringTextComponent("No messages found");
         StringTextComponent stringTextComponent = new StringTextComponent(messages[0].text);
         stringTextComponent.applyTextStyle(messages[0].color);
         if(messages.length > 1)
@@ -22,6 +26,10 @@ public class TextComponentUtil {
                 stringTextComponent.applyTextStyle(m.color);
             }
         return stringTextComponent;
+    }
+
+    public static TranslationTextComponent translationTextComponent(String code) {
+        return new TranslationTextComponent(FoodPlusMod.MOD_ID + "." + code);
     }
 
     public static class Message {

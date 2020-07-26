@@ -1,0 +1,6 @@
+{
+  "parent": "cube/cube_all",
+  "textures": {
+    "all": "testfood:blocks/salt_ore"
+  }
+}

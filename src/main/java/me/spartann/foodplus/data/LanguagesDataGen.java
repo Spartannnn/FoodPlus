@@ -26,6 +26,8 @@ public class LanguagesDataGen extends LanguageProvider {
         this.addItem(ModItems.HARVEST_TOOL, "Harvesting Tool");
         this.addItem(ModItems.PEAR_FRUIT, "Pear");
         this.addItem(ModItems.CHERRY_FRUIT, "Cherry");
+        this.addItem(ModItems.MANGO_FRUIT, "Mango");
+        this.addItem(ModItems.SALT, "Salt");
     }
 
     private void blocks() {
@@ -35,6 +37,10 @@ public class LanguagesDataGen extends LanguageProvider {
         this.addBlock(ModBlocks.CHERRY_LOG, "Cherry Log");
         this.addBlock(ModBlocks.CHERRY_LEAVES, "Cherry Leaves");
         this.addBlock(ModBlocks.CHERRY_SAPLING, "Cherry Sapling");
+        this.addBlock(ModBlocks.MANGO_LOG, "Mango Log");
+        this.addBlock(ModBlocks.MANGO_LEAVES, "Mango Leaves");
+        this.addBlock(ModBlocks.MANGO_SAPLING, "Mango Sapling");
+        this.addBlock(ModBlocks.SALT_ORE, "Salt Ore");
     }
 
 

@@ -12,7 +12,9 @@
     "I": {
       "item": "minecraft:iron_ingot"
     },
-    "X": [],
+    "X": {
+      "item": "minecraft:air"
+    },
     "S": {
       "item": "minecraft:stick"
     }

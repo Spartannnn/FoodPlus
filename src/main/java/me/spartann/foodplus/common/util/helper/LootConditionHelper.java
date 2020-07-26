@@ -1,4 +1,4 @@
-package me.spartann.foodplus.common.util;
+package me.spartann.foodplus.common.util.helper;
 
 import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.item.Item;
