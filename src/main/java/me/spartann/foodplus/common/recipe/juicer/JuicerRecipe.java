@@ -11,7 +11,7 @@ import net.minecraftforge.items.wrapper.RecipeWrapper;
 
 import javax.annotation.Nullable;
 
-public class JuicerRecipe implements IJuicerRecipe{
+public class JuicerRecipe implements IJuicerRecipe {
 
     private final ResourceLocation id;
     private final ItemStack output;
@@ -25,7 +25,7 @@ public class JuicerRecipe implements IJuicerRecipe{
 
     @Override
     public boolean matches(RecipeWrapper inv, @Nullable World worldIn) {
-        if(this.input.getMatchingStacks()[0].isItemEqual(inv.getStackInSlot(0))) {
+        if (this.input.getMatchingStacks()[0].isItemEqual(inv.getStackInSlot(0))) {
             return true;
         }
         return false;
@@ -59,4 +59,5 @@ public class JuicerRecipe implements IJuicerRecipe{
     public Ingredient getInput() {
         return this.input;
     }
+
 }

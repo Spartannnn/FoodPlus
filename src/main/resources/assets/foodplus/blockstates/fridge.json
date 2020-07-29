@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=bottom": {
+      "model": "foodplus:block/fridge_bottom"
+    },
+    "half=top": {
+      "model": "foodplus:block/fridge_top"
+    }
+  }
+}

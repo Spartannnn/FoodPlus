@@ -3,6 +3,7 @@ package me.spartann.foodplus.client.gui;
 import com.mojang.blaze3d.systems.RenderSystem;
 import me.spartann.foodplus.FoodPlusMod;
 import me.spartann.foodplus.common.container.JuicerContainer;
+import me.spartann.foodplus.common.tile.JuicerBlockTile;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
@@ -13,6 +14,7 @@ import java.awt.*;
 public class JuicerScreen extends ContainerScreen<JuicerContainer> {
 
     private static final ResourceLocation TEXTURE = new ResourceLocation(FoodPlusMod.MOD_ID, "textures/gui/container/juicer.png");
+
 
     public JuicerScreen(JuicerContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
         super(screenContainer, inv, titleIn);
@@ -30,13 +32,19 @@ public class JuicerScreen extends ContainerScreen<JuicerContainer> {
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         super.drawGuiContainerForegroundLayer(mouseX, mouseY);
-        this.font.drawString("WorkTicks: " + container.getTile().getWorkTicks(), 5, 5, Color.GRAY.getRGB());
+        this.font.drawString("WorkTicks: " + JuicerBlockTile.getWorkTicks(this.container.getTile()), 5, 5, Color.GRAY.getRGB());
     }
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
         RenderSystem.color4f(1.0f, 1.0f, 1.0f, 1.0f);
         this.minecraft.getTextureManager().bindTexture(TEXTURE);
-        this.blit(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
+        int i = this.guiLeft;
+        int j = this.guiTop;
+        this.blit(i, j, 0, 0, this.xSize, this.ySize);
+
+        int l = JuicerBlockTile.getWorkProgress(this.container.getTile());
+        this.blit(i + 70, j + 20, 176, 14, l + 1, 16);
+
     }
 }

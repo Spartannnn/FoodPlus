@@ -6,7 +6,6 @@ import me.spartann.foodplus.common.items.BaseBlockItem;
 import me.spartann.foodplus.common.items.BaseFoodItem;
 import me.spartann.foodplus.common.items.HarvesterToolItem;
 import me.spartann.foodplus.common.items.SaltItem;
-import me.spartann.foodplus.common.items.juicer.JuicerPlateItem;
 import me.spartann.foodplus.common.items.juicer.juice.JuiceBottleFlavour;
 import me.spartann.foodplus.common.items.juicer.juice.JuiceBottleFullness;
 import me.spartann.foodplus.common.items.juicer.juice.JuiceBottleItem;
@@ -24,7 +23,6 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, FoodPlusMod.MOD_ID);
 
     //FOOD:
-    public static final RegistryObject<Item> TEST_FOOD = ITEMS.register("test_food", () -> new BaseFoodItem(new Item.Properties().group(FoodPlusGroup.INSTANCE).maxStackSize(20)));
     /**
      * Do not use this variable. Use {@link ModItems#getJuiceItem(JuiceBottleFlavour)}
      */

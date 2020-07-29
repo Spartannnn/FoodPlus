@@ -26,9 +26,11 @@ import java.util.Set;
 
 public class JuicerBlockTile extends BasicItemHolderTile implements ITickableTileEntity, INamedContainerProvider {
 
-    private int ticksUntilFinish = 200;
+    private static final int ticksUntilFinish = 200;
     private int workTicks = 0;
+    private int animTime = 0;
     private boolean flag = false;
+    private JuicerRecipe currentRecipe;
 
     public JuicerBlockTile() {
         super(ModTileEntities.JUICER_TILE.get(), 2);
@@ -36,15 +38,18 @@ public class JuicerBlockTile extends BasicItemHolderTile implements ITickableTil
 
     @Override
     public void tick() {
-        if (isRunning())
+        if (isRunning()) {
             this.workTicks--;
-
-        if (this.workTicks <= 0 && canCraft() && this.flag)
-            this.craft(this.getRecipe(this.getFruit()));
+            this.animTime++;
+        }
+        if (this.workTicks == 0 && this.flag)
+            this.craft(this.currentRecipe);
 
         if (!isRunning())
             if (canCraft()) {
                 workTicks = ticksUntilFinish;
+                this.currentRecipe = getRecipe(this.getFruit());
+                this.getFruit().shrink(1);
                 this.flag = true;
             }
     }
@@ -58,12 +63,14 @@ public class JuicerBlockTile extends BasicItemHolderTile implements ITickableTil
             JuiceBottleFlavour flavour = JuiceBottleFlavour.byName(name);
             JuiceBottleItem.setFlavour(output, flavour);
             JuiceBottleItem.setFullness(output, JuiceBottleFullness.FULL);
-            if(this.getOutput().getCount() != 1)
+            if (this.getOutput().getCount() != 1)
                 output.setCount(this.getOutput().getCount() + 1);
             this.getFruit().shrink(1);
             this.inventory.setStackInSlot(1, output);
             this.workTicks = 0;
             this.flag = false;
+            this.animTime = 0;
+            this.currentRecipe = null;
         }
     }
 
@@ -77,6 +84,10 @@ public class JuicerBlockTile extends BasicItemHolderTile implements ITickableTil
 
     public ItemStack getFruit() {
         return this.inventory.getStackInSlot(0);
+    }
+
+    public int getWorkProgress() {
+        return this.animTime != 0 ? this.animTime * 24 / 200 : 0;
     }
 
     public ItemStack getOutput() {
@@ -113,14 +124,23 @@ public class JuicerBlockTile extends BasicItemHolderTile implements ITickableTil
     }
 
     @Override
-    public CompoundNBT write(CompoundNBT compound) {
-        compound.putInt("ticksUnitlFinish", this.ticksUntilFinish);
-        return super.write(compound);
+    public CompoundNBT write(CompoundNBT nbt) {
+        nbt.putInt("workTicks", this.workTicks);
+        return super.write(nbt);
     }
 
     @Override
-    public void read(CompoundNBT compound) {
-        super.read(compound);
-        this.ticksUntilFinish = compound.getInt("tickUntilDry");
+    public void read(CompoundNBT nbt) {
+        super.read(nbt);
+        this.workTicks = nbt.getInt("workTicks");
     }
+
+    public static int getWorkProgress(JuicerBlockTile tile) {
+        return tile.getWorkProgress();
+    }
+
+    public static int getWorkTicks(JuicerBlockTile tile) {
+        return tile.getWorkTicks();
+    }
+
 }

@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "foodplus:cherry_log",
+    "foodplus:mango_log",
     "foodplus:pear_log"
   ]
 }

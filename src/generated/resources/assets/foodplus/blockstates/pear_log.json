@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "foodplus:block/pear_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "foodplus:block/pear_log"
+    },
+    "axis=z": {
+      "model": "foodplus:block/pear_log",
+      "x": 90
+    }
+  }
+}

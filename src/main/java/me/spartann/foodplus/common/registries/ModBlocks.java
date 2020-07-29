@@ -2,6 +2,7 @@ package me.spartann.foodplus.common.registries;
 
 import com.google.common.collect.Sets;
 import me.spartann.foodplus.FoodPlusMod;
+import me.spartann.foodplus.common.blocks.BeerBrewerBlock;
 import me.spartann.foodplus.common.blocks.JuicerBlock;
 import me.spartann.foodplus.common.blocks.SaltOreBlock;
 import me.spartann.foodplus.common.blocks.trees.AbstractFPLeavesBlock;
@@ -14,7 +15,6 @@ import me.spartann.foodplus.common.items.FruitTypes;
 import me.spartann.foodplus.common.world.features.FruitTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -45,6 +45,7 @@ public class ModBlocks {
 
     //Kitchen Util:
     public static final RegistryObject<Block> JUICER = register("juicer", () -> new JuicerBlock(Block.Properties.from(Blocks.FURNACE)));
+    public static final RegistryObject<Block> BEER_BREWER = register("beer_brewer", () -> new BeerBrewerBlock(Block.Properties.from(Blocks.FURNACE)));
 
     //Ore Block:
     public static final RegistryObject<Block> SALT_ORE = register("salt_ore", () -> new SaltOreBlock(Block.Properties.from(Blocks.IRON_ORE)));

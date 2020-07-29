@@ -1,6 +1,6 @@
 package me.spartann.foodplus.common.event;
 
-import me.spartann.foodplus.common.world.data.ThirstStorage;
+import me.spartann.foodplus.common.world.data.ThirstStorageCapability;
 import me.spartann.foodplus.common.world.gen.OreGen;
 import me.spartann.foodplus.common.world.gen.TreeFeatureGen;
 import net.minecraft.nbt.INBT;
@@ -18,17 +18,17 @@ public class SetupEvents {
 
     public static void commonSetup(final FMLCommonSetupEvent event) {
 
-        CapabilityManager.INSTANCE.register(ThirstStorage.class, new Capability.IStorage<ThirstStorage>() {
+        CapabilityManager.INSTANCE.register(ThirstStorageCapability.class, new Capability.IStorage<ThirstStorageCapability>() {
             @Override
-            public INBT writeNBT(Capability<ThirstStorage> capability, ThirstStorage instance, Direction side) {
+            public INBT writeNBT(Capability<ThirstStorageCapability> capability, ThirstStorageCapability instance, Direction side) {
                 return null;
             }
 
             @Override
-            public void readNBT(Capability<ThirstStorage> capability, ThirstStorage instance, Direction side, INBT nbt) {
+            public void readNBT(Capability<ThirstStorageCapability> capability, ThirstStorageCapability instance, Direction side, INBT nbt) {
             }
 
-        }, ThirstStorage::new);
+        }, ThirstStorageCapability::new);
 
         TreeFeatureGen.generateTrees();
         OreGen.generateOre();

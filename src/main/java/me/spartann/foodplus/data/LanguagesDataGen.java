@@ -3,11 +3,8 @@ package me.spartann.foodplus.data;
 import me.spartann.foodplus.FoodPlusMod;
 import me.spartann.foodplus.common.registries.ModBlocks;
 import me.spartann.foodplus.common.registries.ModItems;
-import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.item.Item;
 import net.minecraftforge.common.data.LanguageProvider;
-import net.minecraftforge.fml.RegistryObject;
 
 public class LanguagesDataGen extends LanguageProvider {
 
@@ -22,7 +19,6 @@ public class LanguagesDataGen extends LanguageProvider {
     }
 
     private void items() {
-        this.addItem(ModItems.TEST_FOOD, "Test Food");
         this.addItem(ModItems.HARVEST_TOOL, "Harvesting Tool");
         this.addItem(ModItems.PEAR_FRUIT, "Pear");
         this.addItem(ModItems.CHERRY_FRUIT, "Cherry");

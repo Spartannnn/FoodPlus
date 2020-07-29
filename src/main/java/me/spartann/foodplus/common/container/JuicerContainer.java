@@ -15,7 +15,8 @@ import net.minecraft.util.NonNullList;
 public class JuicerContainer extends BasicFPContainer {
 
     private final IWorldPosCallable canInteract;
-    private JuicerBlockTile tile;
+    private final JuicerBlockTile tile;
+    private final int workTicks;
 
     public JuicerContainer(int id, PlayerInventory playerInventory, PacketBuffer data) {
         this(id, playerInventory, ContainerHelper.getTileEntity(JuicerBlockTile.class, playerInventory, data));
@@ -25,14 +26,16 @@ public class JuicerContainer extends BasicFPContainer {
         super(ModContainers.JUICER_CONTAINER.get(), id);
         this.canInteract = IWorldPosCallable.of(tile.getWorld(), tile.getPos());
         this.tile = tile;
+        this.workTicks = tile.getWorkTicks();
 
         this.addSlot(new UniqueItemSlot(tile.getItemHandler(), 0, 27, 21, ModItems.getFruits()));
-        this.addSlot(new UniqueItemSlot(tile.getItemHandler(), 1, 114, 22, NonNullList.withSize(1, ModItems.JUICE.get())));
+        this.addSlot(new UniqueItemSlot(tile.getItemHandler(), 1, 124, 21, NonNullList.withSize(1, ModItems.JUICE.get())));
 
         this.playerInventory(playerInventory, 8, 70);
         this.playerHotbar(playerInventory, 8, 127);
 
     }
+
 
     public JuicerBlockTile getTile() {
         return tile;

@@ -14,9 +14,9 @@ public class OreGen {
 
     public static void generateOre() {
         for(Biome biome : ForgeRegistries.BIOMES) {
-            ConfiguredPlacement saltOreConfig = Placement.COUNT_RANGE.configure(new CountRangeConfig(5, 10, 40, 30));
+            ConfiguredPlacement saltOreConfig = Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 64));
             biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE
-                    .withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.SALT_ORE.get().getDefaultState(), 4))
+                    .withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.SALT_ORE.get().getDefaultState(), 9))
                     .withPlacement(saltOreConfig));
         }
     }

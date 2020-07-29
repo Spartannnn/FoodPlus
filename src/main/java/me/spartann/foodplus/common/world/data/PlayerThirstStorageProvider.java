@@ -12,27 +12,27 @@ import java.util.Optional;
 
 public class PlayerThirstStorageProvider implements ICapabilityProvider {
 
-    private final LazyOptional<ThirstStorage> thirst;
+    private final LazyOptional<ThirstStorageCapability> thirst;
 
     public PlayerThirstStorageProvider() {
-        this.thirst = LazyOptional.of(() -> new ThirstStorage());
+        this.thirst = LazyOptional.of(() -> new ThirstStorageCapability());
     }
 
     @SuppressWarnings("resource")
-    public static LazyOptional<ThirstStorage> getClientCapability() {
-        return Optional.of(Minecraft.getInstance().player).map(p -> p.getCapability(ThirstStorage.Capability.get())).orElse(null);
+    public static LazyOptional<ThirstStorageCapability> getClientCapability() {
+        return Optional.of(Minecraft.getInstance().player).map(p -> p.getCapability(ThirstStorageCapability.Capability.get())).orElse(null);
     }
 
-    public static  LazyOptional<ThirstStorage> getPlayerCapability(PlayerEntity player) {
-        return player.getCapability(ThirstStorage.Capability.get());
+    public static  LazyOptional<ThirstStorageCapability> getPlayerCapability(PlayerEntity player) {
+        return player.getCapability(ThirstStorageCapability.Capability.get());
     }
 
-    public static int getEnergy(PlayerEntity player) {
-        return player.getCapability(ThirstStorage.Capability.get()).map(s -> s.getThirst()).orElse(0);
+    public static int getThirstStorage(PlayerEntity player) {
+        return player.getCapability(ThirstStorageCapability.Capability.get()).map(s -> s.getThirst()).orElse(0);
     }
 
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {
-        return ThirstStorage.Capability.get().orEmpty(cap, this.thirst);
+        return ThirstStorageCapability.Capability.get().orEmpty(cap, this.thirst);
     }
 }

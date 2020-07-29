@@ -3,12 +3,10 @@ package me.spartann.foodplus.common.items;
 import net.minecraft.item.Food;
 import net.minecraft.item.Foods;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 
 public class BaseFoodItem extends Item {
 
     public static final Food FRUIT_FOOD = build(4, 1.2F);
-
 
     public BaseFoodItem(Properties properties, Food food) {
         super(properties.food(food));
@@ -22,11 +20,11 @@ public class BaseFoodItem extends Item {
         Food.Builder builder = new Food.Builder();
         builder.hunger(hunger);
         builder.saturation(saturation);
-        if(meat)
+        if (meat)
             builder.meat();
-        if(alwaysEdible)
+        if (alwaysEdible)
             builder.setAlwaysEdible();
-        if(fastEat)
+        if (fastEat)
             builder.fastToEat();
         return builder.build();
     }

@@ -4,7 +4,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.util.LazyOptional;
 
-public class ThirstStorage {
+public class ThirstStorageCapability {
 
     private int thirst = 0;
     private int maxThirst = 0;
@@ -27,14 +27,15 @@ public class ThirstStorage {
 
     public static class Capability {
 
-        @CapabilityInject(ThirstStorage.class)
-        public static net.minecraftforge.common.capabilities.Capability<ThirstStorage> THIRST_CAP;
+        @CapabilityInject(ThirstStorageCapability.class)
+        public static net.minecraftforge.common.capabilities.Capability<ThirstStorageCapability> THIRST_CAP;
 
-        public static LazyOptional<ThirstStorage> getWorldPressure(final World world) {
+        public static LazyOptional<ThirstStorageCapability> getWorldPressure(final World world) {
+
             return world.getCapability(THIRST_CAP, null);
         }
 
-        public static net.minecraftforge.common.capabilities.Capability<ThirstStorage> get() {
+        public static net.minecraftforge.common.capabilities.Capability<ThirstStorageCapability> get() {
             return THIRST_CAP;
         }
 

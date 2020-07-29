@@ -1,7 +1,6 @@
 {
-  "parent": "cube/cube_column",
+  "parent": "block/cube_all",
   "textures": {
-    "end": "foodplus:blocks/cherry_log",
-    "side": "foodplus:blocks/pear_log"
+    "all": "foodplus:blocks/pear_log"
   }
 }

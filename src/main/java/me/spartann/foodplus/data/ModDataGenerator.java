@@ -14,12 +14,16 @@ public class ModDataGenerator {
         DataGenerator generator = event.getGenerator();
         if (event.includeServer()) {
             FoodPlusMod.LOGGER.info("Starting common data gen");
+            generator.addProvider(new BlockTagsDataGen(generator));
             generator.addProvider(new LootTablesDataGen(generator));
             generator.addProvider(new RecipeDataGen(generator));
         }
 
         if (event.includeClient()) {
             FoodPlusMod.LOGGER.info("Starting client data gen");
+            generator.addProvider(new BlockModelDataGen(generator, FoodPlusMod.MOD_ID, event.getExistingFileHelper()));
+            generator.addProvider(new BlockStateDataGen(generator, FoodPlusMod.MOD_ID, event.getExistingFileHelper()));
+            generator.addProvider(new ItemModelDataGen(generator, FoodPlusMod.MOD_ID, event.getExistingFileHelper()));
             generator.addProvider(new LanguagesDataGen(generator));
         }
     }

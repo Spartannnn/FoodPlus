@@ -1,6 +1,7 @@
 package me.spartann.foodplus.common.registries;
 
 import me.spartann.foodplus.FoodPlusMod;
+import me.spartann.foodplus.common.tile.BeerBrewerTile;
 import me.spartann.foodplus.common.tile.JuicerBlockTile;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -13,5 +14,9 @@ public class ModTileEntities {
 
     public static final RegistryObject<TileEntityType<JuicerBlockTile>> JUICER_TILE = TILE_ENTITIES.register("juicer_tile",
             () -> TileEntityType.Builder.create(JuicerBlockTile::new, ModBlocks.JUICER.get()).build(null));
+
+    public static final RegistryObject<TileEntityType<BeerBrewerTile>> BEER_BREWER_TILE = TILE_ENTITIES.register("beer_brewer_tile",
+            () -> TileEntityType.Builder.create(BeerBrewerTile::new, ModBlocks.BEER_BREWER.get()).build(null));
+
 
 }
