@@ -42,6 +42,7 @@ public class ModItems {
     public static final RegistryObject<Item> PEAR_LEAVES = ITEMS.register("pear_leaves", () -> new BaseBlockItem(ModBlocks.PEAR_LEAVES.get(), new Item.Properties()));
     public static final RegistryObject<Item> PEAR_SAPLING = ITEMS.register("pear_sapling", () -> new BaseBlockItem(ModBlocks.PEAR_SAPLING.get(), new Item.Properties()));
     public static final RegistryObject<Item> SALT_ORE = ITEMS.register("salt_ore", () -> new BaseBlockItem(ModBlocks.SALT_ORE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> HOP_SEED = ITEMS.register("hop_seed", () -> new BaseBlockItem(ModBlocks.HOP_CROP.get(), new Item.Properties()));
 
     //Kitchen Util:
     public static final RegistryObject<Item> JUICER = ITEMS.register("juicer", () -> new BaseBlockItem(ModBlocks.JUICER.get(), new Item.Properties()));

@@ -57,7 +57,7 @@ public class JuicerBlockTile extends BasicItemHolderTile implements ITickableTil
     private void craft(JuicerRecipe recipe) {
         if (recipe != null) {
             ItemStack output = recipe.getRecipeOutput();
-            ItemStack input = this.getFruit();
+            ItemStack input = recipe.getInput().getMatchingStacks()[0];
             String name = input.getItem().getRegistryName().getPath();
             name = name.replace("_fruit", "");
             JuiceBottleFlavour flavour = JuiceBottleFlavour.byName(name);
@@ -139,8 +139,5 @@ public class JuicerBlockTile extends BasicItemHolderTile implements ITickableTil
         return tile.getWorkProgress();
     }
 
-    public static int getWorkTicks(JuicerBlockTile tile) {
-        return tile.getWorkTicks();
-    }
 
 }

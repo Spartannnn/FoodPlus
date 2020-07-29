@@ -5,6 +5,7 @@ import me.spartann.foodplus.FoodPlusMod;
 import me.spartann.foodplus.common.blocks.BeerBrewerBlock;
 import me.spartann.foodplus.common.blocks.JuicerBlock;
 import me.spartann.foodplus.common.blocks.SaltOreBlock;
+import me.spartann.foodplus.common.blocks.crops.HopBlock;
 import me.spartann.foodplus.common.blocks.trees.AbstractFPLeavesBlock;
 import me.spartann.foodplus.common.blocks.trees.FPLogBlock;
 import me.spartann.foodplus.common.blocks.trees.FPSaplingBlock;
@@ -15,6 +16,7 @@ import me.spartann.foodplus.common.items.FruitTypes;
 import me.spartann.foodplus.common.world.features.FruitTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -49,6 +51,9 @@ public class ModBlocks {
 
     //Ore Block:
     public static final RegistryObject<Block> SALT_ORE = register("salt_ore", () -> new SaltOreBlock(Block.Properties.from(Blocks.IRON_ORE)));
+
+    //CROPS:
+    public static final RegistryObject<Block> HOP_CROP = register("hop_crop", () -> new HopBlock(Block.Properties.create(Material.PLANTS).notSolid().doesNotBlockMovement().tickRandomly()));
 
     private static <T extends Block> RegistryObject<T> register(String registryName, Supplier<? extends T> supplier) {
         return BLOCKS.register(registryName, supplier);

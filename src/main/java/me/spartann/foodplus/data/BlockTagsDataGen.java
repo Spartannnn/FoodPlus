@@ -3,7 +3,6 @@ package me.spartann.foodplus.data;
 import me.spartann.foodplus.common.registries.ModBlocks;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DirectoryCache;
 import net.minecraft.tags.BlockTags;
 
 public class BlockTagsDataGen extends BlockTagsProvider {

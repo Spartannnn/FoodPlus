@@ -37,6 +37,7 @@ public class LanguagesDataGen extends LanguageProvider {
         this.addBlock(ModBlocks.MANGO_LEAVES, "Mango Leaves");
         this.addBlock(ModBlocks.MANGO_SAPLING, "Mango Sapling");
         this.addBlock(ModBlocks.SALT_ORE, "Salt Ore");
+        this.addBlock(ModBlocks.HOP_CROP, "Hop");
     }
 
 

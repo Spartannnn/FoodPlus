@@ -21,6 +21,7 @@ public class ClientEventBusSubscriber {
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
         RenderTypeLookup.setRenderLayer(ModBlocks.PEAR_SAPLING.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.HOP_CROP.get(), RenderType.getCutout());
 
         ScreenManager.registerFactory(ModContainers.JUICER_CONTAINER.get(), JuicerScreen::new);
 

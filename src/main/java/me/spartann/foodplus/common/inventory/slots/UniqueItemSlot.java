@@ -10,7 +10,7 @@ import javax.annotation.Nonnull;
 
 public class UniqueItemSlot extends SlotItemHandler {
 
-    private NonNullList<Item> uniqueItems;
+    private final NonNullList<Item> uniqueItems;
 
     public UniqueItemSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition, NonNullList<Item> uniqueItems) {
         super(itemHandler, index, xPosition, yPosition);

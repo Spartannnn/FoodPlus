@@ -2,6 +2,7 @@
   "block.foodplus.cherry_leaves": "Cherry Leaves",
   "block.foodplus.cherry_log": "Cherry Log",
   "block.foodplus.cherry_sapling": "Cherry Sapling",
+  "block.foodplus.hop_crop": "Hop",
   "block.foodplus.mango_leaves": "Mango Leaves",
   "block.foodplus.mango_log": "Mango Log",
   "block.foodplus.mango_sapling": "Mango Sapling",
@@ -13,6 +14,5 @@
   "item.foodplus.harvest_tool": "Harvesting Tool",
   "item.foodplus.mango_fruit": "Mango",
   "item.foodplus.pear_fruit": "Pear",
-  "item.foodplus.salt": "Salt",
-  "item.foodplus.test_food": "Test Food"
+  "item.foodplus.salt": "Salt"
 }

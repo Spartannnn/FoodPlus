@@ -9,8 +9,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
-import java.awt.*;
-
 public class JuicerScreen extends ContainerScreen<JuicerContainer> {
 
     private static final ResourceLocation TEXTURE = new ResourceLocation(FoodPlusMod.MOD_ID, "textures/gui/container/juicer.png");
@@ -27,12 +25,6 @@ public class JuicerScreen extends ContainerScreen<JuicerContainer> {
         this.renderBackground();
         super.render(mouseX, mouseY, partialTicks);
         this.renderHoveredToolTip(mouseX, mouseY);
-    }
-
-    @Override
-    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-        super.drawGuiContainerForegroundLayer(mouseX, mouseY);
-        this.font.drawString("WorkTicks: " + JuicerBlockTile.getWorkTicks(this.container.getTile()), 5, 5, Color.GRAY.getRGB());
     }
 
     @Override
