@@ -52,4 +52,30 @@ public class CraftingHelper {
         return new RecipeWrapper(out);
     }
 
+    /*
+        Iterate only through the inputs
+     */
+    public static boolean containsInRecipe(ItemStack stack, IRecipeType<?> type, World world) {
+        Set<IRecipe<?>> recipes = findRecipesByType(type, world);
+        if(recipes.isEmpty()) return false;
+        boolean flag = false;
+
+        for(IRecipe<?> recipe : recipes) {
+            NonNullList<Ingredient> ingredients = recipe.getIngredients();
+            for(Ingredient ingredient : ingredients) {
+                if(ingredient == null) {
+                    continue;
+                }
+                if(ingredient.getMatchingStacks()[0].isItemEqual(stack)) {
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag)
+                break;
+        }
+
+        return flag;
+    }
+
 }

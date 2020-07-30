@@ -1,5 +1,6 @@
 package me.spartann.foodplus.common.blocks;
 
+import me.spartann.foodplus.common.tile.BasicItemHolderTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,7 +17,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
-public abstract class FPContainerBlock extends Block {
+public abstract class FPContainerBlock<T extends BasicItemHolderTile & INamedContainerProvider> extends Block {
 
     public FPContainerBlock(Properties properties) {
         super(properties);
@@ -35,13 +36,14 @@ public abstract class FPContainerBlock extends Block {
 
     public abstract TileEntity create();
 
+    public abstract Class<T> tileEntityClass();
+
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if(!worldIn.isRemote) {
+        if (!worldIn.isRemote) {
             TileEntity tileEntity = worldIn.getTileEntity(pos);
-            if(tileEntity instanceof INamedContainerProvider) {
+            if (tileEntity != null && (tileEntity.getClass().equals(tileEntityClass()) || tileEntity.getClass().isInstance(tileEntityClass())))
                 NetworkHooks.openGui((ServerPlayerEntity) player, (INamedContainerProvider) tileEntity, pos);
-            }
         }
 
         return ActionResultType.PASS;

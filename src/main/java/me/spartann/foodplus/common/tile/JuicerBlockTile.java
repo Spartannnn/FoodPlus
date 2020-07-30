@@ -65,17 +65,12 @@ public class JuicerBlockTile extends BasicItemHolderTile implements ITickableTil
             JuiceBottleItem.setFullness(output, JuiceBottleFullness.FULL);
             if (this.getOutput().getCount() != 1)
                 output.setCount(this.getOutput().getCount() + 1);
-            this.getFruit().shrink(1);
             this.inventory.setStackInSlot(1, output);
             this.workTicks = 0;
             this.flag = false;
             this.animTime = 0;
             this.currentRecipe = null;
         }
-    }
-
-    public int getWorkTicks() {
-        return workTicks;
     }
 
     private boolean isRunning() {

@@ -1,8 +1,11 @@
 package me.spartann.foodplus.common.blocks;
 
 import me.spartann.foodplus.common.registries.ModTileEntities;
+import me.spartann.foodplus.common.tile.BasicItemHolderTile;
+import me.spartann.foodplus.common.tile.BeerBrewerTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.IBooleanFunction;
@@ -13,7 +16,7 @@ import net.minecraft.world.IBlockReader;
 
 import java.util.stream.Stream;
 
-public class BeerBrewerBlock extends FPContainerBlock {
+public class BeerBrewerBlock extends FPContainerBlock<BeerBrewerTile> {
 
     private static final VoxelShape SHAPE = Stream.of(
             Block.makeCuboidShape(12, 8, 13, 13, 9, 14),
@@ -54,6 +57,11 @@ public class BeerBrewerBlock extends FPContainerBlock {
     @Override
     public TileEntity create() {
         return ModTileEntities.BEER_BREWER_TILE.get().create();
+    }
+
+    @Override
+    public Class<BeerBrewerTile> tileEntityClass() {
+        return BeerBrewerTile.class;
     }
 
 }

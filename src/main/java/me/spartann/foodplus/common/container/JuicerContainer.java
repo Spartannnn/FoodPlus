@@ -1,7 +1,6 @@
 package me.spartann.foodplus.common.container;
 
 import me.spartann.foodplus.common.inventory.slots.UniqueItemSlot;
-import me.spartann.foodplus.common.registries.ModBlocks;
 import me.spartann.foodplus.common.registries.ModContainers;
 import me.spartann.foodplus.common.registries.ModItems;
 import me.spartann.foodplus.common.tile.JuicerBlockTile;
@@ -13,12 +12,9 @@ import net.minecraft.inventory.container.ClickType;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.NonNullList;
 
 public class JuicerContainer extends BasicFPContainer<JuicerBlockTile> {
-
-    private final IWorldPosCallable canInteract;
 
     public JuicerContainer(int id, PlayerInventory playerInventory, PacketBuffer data) {
         this(id, playerInventory, ContainerHelper.getTileEntity(JuicerBlockTile.class, playerInventory, data));
@@ -26,10 +22,9 @@ public class JuicerContainer extends BasicFPContainer<JuicerBlockTile> {
 
     public JuicerContainer(int id, PlayerInventory playerInventory, JuicerBlockTile tile) {
         super(ModContainers.JUICER_CONTAINER.get(), id, tile);
-        this.canInteract = IWorldPosCallable.of(tile.getWorld(), tile.getPos());
 
-        this.addSlot(new UniqueItemSlot(tile.getItemHandler(), 0, 27, 21, ModItems.getFruits()));
-        this.addSlot(new UniqueItemSlot(tile.getItemHandler(), 1, 124, 21, NonNullList.withSize(1, ModItems.JUICE.get())));
+        this.addSlot(new UniqueItemSlot(itemHandler, 0, 27, 21, ModItems.getFruits()));
+        this.addSlot(new UniqueItemSlot(itemHandler, 1, 124, 21, NonNullList.withSize(1, ModItems.JUICE.get())));
 
         this.playerInventory(playerInventory, 8, 70);
         this.playerHotbar(playerInventory, 8, 127);

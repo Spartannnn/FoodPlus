@@ -1,7 +1,6 @@
 package me.spartann.foodplus.common.container;
 
 
-import me.spartann.foodplus.common.registries.ModBlocks;
 import me.spartann.foodplus.common.tile.BasicItemHolderTile;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -11,6 +10,7 @@ import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IWorldPosCallable;
+import net.minecraftforge.items.IItemHandlerModifiable;
 
 import javax.annotation.Nullable;
 
@@ -18,10 +18,12 @@ public abstract class BasicFPContainer<T extends BasicItemHolderTile & INamedCon
 
     protected T tile;
     protected final IWorldPosCallable canInteract;
+    protected IItemHandlerModifiable itemHandler;
 
-    protected BasicFPContainer(@Nullable ContainerType<?> type, int id, T tile) {
+    public BasicFPContainer(@Nullable ContainerType<?> type, int id, T tile) {
         super(type, id);
         this.tile = tile;
+        this.itemHandler = tile.getItemHandler();
         this.canInteract = IWorldPosCallable.of(tile.getWorld(), tile.getPos());
     }
 
@@ -42,7 +44,7 @@ public abstract class BasicFPContainer<T extends BasicItemHolderTile & INamedCon
 
     @Override
     public boolean canInteractWith(PlayerEntity playerIn) {
-        return this.isWithinUsableDistance(canInteract, playerIn, ModBlocks.JUICER.get());
+        return isWithinUsableDistance(canInteract, playerIn, tile.getBlockState().getBlock());
     }
 
     public T getTile() {
@@ -56,7 +58,7 @@ public abstract class BasicFPContainer<T extends BasicItemHolderTile & INamedCon
         if (!slot.getHasStack())
             return ItemStack.EMPTY;
         ItemStack stack = slot.getStack();
-        ItemStack stack1 = tile.getItemHandler().extractItem(slotId, stack.getCount(), false);
+        ItemStack stack1 = this.itemHandler.extractItem(slotId, stack.getCount(), false);
         if (this.mergeItemStack(stack1, minIndex, this.inventorySlots.size(), true))
             return ItemStack.EMPTY;
         return ItemStack.EMPTY;

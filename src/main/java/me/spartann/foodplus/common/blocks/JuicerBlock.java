@@ -17,32 +17,21 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
-public class JuicerBlock extends Block {
+public class JuicerBlock extends FPContainerBlock<JuicerBlockTile> {
 
     public JuicerBlock(Properties properties) {
         super(properties);
     }
 
     @Override
-    public boolean hasTileEntity(BlockState state) {
-        return true;
-    }
-
-    @Nullable
-    @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+    public TileEntity create() {
         return ModTileEntities.JUICER_TILE.get().create();
     }
 
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if(!worldIn.isRemote) {
-            TileEntity te = worldIn.getTileEntity(pos);
-            if(te instanceof JuicerBlockTile) {
-                NetworkHooks.openGui((ServerPlayerEntity) player, (JuicerBlockTile) te, pos);
-            }
-        }
-
-        return ActionResultType.PASS;
+    public Class<JuicerBlockTile> tileEntityClass() {
+        return JuicerBlockTile.class;
     }
+
+
 }

@@ -3,20 +3,25 @@ package me.spartann.foodplus.common.registries;
 import me.spartann.foodplus.FoodPlusMod;
 import me.spartann.foodplus.common.tile.BeerBrewerTile;
 import me.spartann.foodplus.common.tile.JuicerBlockTile;
+import net.minecraft.block.Block;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.function.Supplier;
+
 public class ModTileEntities {
 
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = new DeferredRegister<>(ForgeRegistries.TILE_ENTITIES, FoodPlusMod.MOD_ID);
 
-    public static final RegistryObject<TileEntityType<JuicerBlockTile>> JUICER_TILE = TILE_ENTITIES.register("juicer_tile",
-            () -> TileEntityType.Builder.create(JuicerBlockTile::new, ModBlocks.JUICER.get()).build(null));
+    public static final RegistryObject<TileEntityType<JuicerBlockTile>> JUICER_TILE = registerTile("juicer_tile", JuicerBlockTile::new, ModBlocks.JUICER);
+    public static final RegistryObject<TileEntityType<BeerBrewerTile>> BEER_BREWER_TILE = registerTile("beer_brewer_tile", BeerBrewerTile::new, ModBlocks.BEER_BREWER);
 
-    public static final RegistryObject<TileEntityType<BeerBrewerTile>> BEER_BREWER_TILE = TILE_ENTITIES.register("beer_brewer_tile",
-            () -> TileEntityType.Builder.create(BeerBrewerTile::new, ModBlocks.BEER_BREWER.get()).build(null));
+    private static <T extends TileEntity> RegistryObject<TileEntityType<T>> registerTile(String id, Supplier<T> supplier, RegistryObject<Block> block) {
+        return TILE_ENTITIES.register(id, () -> TileEntityType.Builder.create(supplier, block.get()).build(null));
+    }
 
 
 }

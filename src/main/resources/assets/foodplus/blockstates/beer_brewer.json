@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "foodplus:block/beer_brewer" }
+  }
+}
