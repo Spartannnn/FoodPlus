@@ -19,9 +19,10 @@ public class UniqueItemSlot extends SlotItemHandler {
 
     @Override
     public boolean isItemValid(@Nonnull ItemStack stack) {
-        for(Item item : uniqueItems)
-            if(item.getDefaultInstance().isItemEqual(stack))
+        for (Item item : uniqueItems)
+            if (item.getDefaultInstance().isItemEqual(stack))
                 return true;
         return false;
     }
+
 }

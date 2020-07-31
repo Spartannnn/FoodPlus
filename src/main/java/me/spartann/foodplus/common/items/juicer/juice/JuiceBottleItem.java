@@ -50,6 +50,12 @@ public class JuiceBottleItem extends Item {
         enumBottleFullness.putIntoNBT(compoundNBT, NBT_TAG_NAME_FULLNESS);
     }
 
+    public static boolean isEqualJuice(ItemStack stack, ItemStack stack1) {
+        JuiceBottleFlavour flavour = getFlavour(stack);
+        JuiceBottleFlavour flavour1 = getFlavour(stack1);
+        return flavour == flavour1;
+    }
+
     @Override
     public void fillItemGroup(ItemGroup tab, NonNullList<ItemStack> subItems) {
         if (this.isInGroup(tab)) {

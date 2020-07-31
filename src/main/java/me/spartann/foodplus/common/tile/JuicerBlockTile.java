@@ -13,18 +13,19 @@ import me.spartann.foodplus.common.util.helper.CraftingHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 
 import javax.annotation.Nullable;
 import java.util.Set;
 
-public class JuicerBlockTile extends BasicItemHolderTile implements ITickableTileEntity, INamedContainerProvider {
+public class JuicerBlockTile extends ContainerTile implements ITickableTileEntity {
+
 
     private static final int ticksUntilFinish = 200;
     private int workTicks = 0;
@@ -33,8 +34,9 @@ public class JuicerBlockTile extends BasicItemHolderTile implements ITickableTil
     private JuicerRecipe currentRecipe;
 
     public JuicerBlockTile() {
-        super(ModTileEntities.JUICER_TILE.get(), 2);
+        super(ModTileEntities.JUICER_TILE.get(), 2, ItemStack.EMPTY);
     }
+
 
     @Override
     public void tick() {
@@ -63,14 +65,21 @@ public class JuicerBlockTile extends BasicItemHolderTile implements ITickableTil
             JuiceBottleFlavour flavour = JuiceBottleFlavour.byName(name);
             JuiceBottleItem.setFlavour(output, flavour);
             JuiceBottleItem.setFullness(output, JuiceBottleFullness.FULL);
-            if (this.getOutput().getCount() != 1)
-                output.setCount(this.getOutput().getCount() + 1);
-            this.inventory.setStackInSlot(1, output);
+            this.increaseStack(1, 1);
             this.workTicks = 0;
             this.flag = false;
             this.animTime = 0;
             this.currentRecipe = null;
         }
+    }
+
+    private void increaseStack(int index, int amount) {
+        if (index < 0 || index > this.inventory.getSlots()) throw new IndexOutOfBoundsException("Index out of range");
+        ItemStack stack = this.inventory.getStackInSlot(index);
+        if(stack.isEmpty())
+            stack = currentRecipe.getRecipeOutput();
+        stack.grow(amount);
+        this.inventory.setStackInSlot(index, stack);
     }
 
     private boolean isRunning() {
@@ -90,7 +99,8 @@ public class JuicerBlockTile extends BasicItemHolderTile implements ITickableTil
     }
 
     private boolean canCraft() {
-        return !this.getFruit().isEmpty() && this.getFruit().isFood() && this.getFruit().getItem().getFood().equals(BaseFoodItem.FRUIT_FOOD);
+        return !this.getFruit().isEmpty() && this.getFruit().isFood() && this.getFruit().getItem().getFood().equals(BaseFoodItem.FRUIT_FOOD)
+                && (this.getOutput().isEmpty() || this.getOutput().getCount() != 64);
     }
 
     private JuicerRecipe getRecipe(ItemStack stack) {
@@ -112,11 +122,11 @@ public class JuicerBlockTile extends BasicItemHolderTile implements ITickableTil
         return TextComponentUtil.translationTextComponent("container.juicer");
     }
 
-    @Nullable
     @Override
-    public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) {
-        return new JuicerContainer(p_createMenu_1_, p_createMenu_2_, this);
+    protected ITextComponent getDefaultName() {
+        return TextComponentUtil.stringTextComponent("Hey", TextFormatting.GRAY);
     }
+
 
     @Override
     public CompoundNBT write(CompoundNBT nbt) {
@@ -135,4 +145,9 @@ public class JuicerBlockTile extends BasicItemHolderTile implements ITickableTil
     }
 
 
+    @Nullable
+    @Override
+    public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) {
+        return new JuicerContainer(p_createMenu_1_, p_createMenu_2_, this);
+    }
 }

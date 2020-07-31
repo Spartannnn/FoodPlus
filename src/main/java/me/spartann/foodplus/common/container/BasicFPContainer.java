@@ -1,7 +1,7 @@
 package me.spartann.foodplus.common.container;
 
 
-import me.spartann.foodplus.common.tile.BasicItemHolderTile;
+import me.spartann.foodplus.common.tile.ContainerTile;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -14,10 +14,10 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 
 import javax.annotation.Nullable;
 
-public abstract class BasicFPContainer<T extends BasicItemHolderTile & INamedContainerProvider> extends Container {
+public abstract class BasicFPContainer<T extends ContainerTile & INamedContainerProvider> extends Container {
 
     protected T tile;
-    protected final IWorldPosCallable canInteract;
+    protected IWorldPosCallable canInteract;
     protected IItemHandlerModifiable itemHandler;
 
     public BasicFPContainer(@Nullable ContainerType<?> type, int id, T tile) {

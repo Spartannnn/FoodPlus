@@ -1,7 +1,6 @@
 package me.spartann.foodplus.common.event;
 
 import me.spartann.foodplus.FoodPlusMod;
-import me.spartann.foodplus.client.gui.BeerBrewerScreen;
 import me.spartann.foodplus.client.gui.JuicerScreen;
 import me.spartann.foodplus.common.items.juicer.juice.JuiceBottleColor;
 import me.spartann.foodplus.common.registries.ModBlocks;
@@ -25,7 +24,6 @@ public class ClientEventBusSubscriber {
         RenderTypeLookup.setRenderLayer(ModBlocks.HOP_CROP.get(), RenderType.getCutout());
 
         ScreenManager.registerFactory(ModContainers.JUICER_CONTAINER.get(), JuicerScreen::new);
-        ScreenManager.registerFactory(ModContainers.BEER_BREWER_CONTAINER.get(), BeerBrewerScreen::new);
 
     }
 

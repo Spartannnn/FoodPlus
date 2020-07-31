@@ -1,6 +1,5 @@
 package me.spartann.foodplus.common.blocks;
 
-import me.spartann.foodplus.common.tile.BasicItemHolderTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,7 +16,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
-public abstract class FPContainerBlock<T extends BasicItemHolderTile & INamedContainerProvider> extends Block {
+public abstract class FPContainerBlock<T extends INamedContainerProvider> extends Block {
 
     public FPContainerBlock(Properties properties) {
         super(properties);

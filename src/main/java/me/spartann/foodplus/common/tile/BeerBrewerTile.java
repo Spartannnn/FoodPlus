@@ -1,6 +1,5 @@
 package me.spartann.foodplus.common.tile;
 
-import me.spartann.foodplus.common.container.BeerBrewerContainer;
 import me.spartann.foodplus.common.recipe.beerbrewer.BeerBrewerRecipe;
 import me.spartann.foodplus.common.registries.ModRecipeTypes;
 import me.spartann.foodplus.common.registries.ModTileEntities;
@@ -46,8 +45,11 @@ public class BeerBrewerTile extends BasicItemHolderTile implements INamedContain
                 if(this.currentRecipe == null)
                     throw new NullPointerException("Recipe not found");
                 this.workTicks = this.currentRecipe.getSecondsUntilFinish();
-                for (ItemStack items : getInputSlots())
-                    items.shrink(1);
+                for (int i = 0; i < getInputSlots().length; i++) {
+                    getInputSlots()[i].shrink(1);
+                    if(getInputSlots()[i].getCount() == 0)
+                        this.inventory.setStackInSlot(i, ItemStack.EMPTY);
+                }
                 this.craftFlag = true;
             }
         }
@@ -117,7 +119,7 @@ public class BeerBrewerTile extends BasicItemHolderTile implements INamedContain
     @Nullable
     @Override
     public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) {
-        return new BeerBrewerContainer(p_createMenu_1_, p_createMenu_2_, this);
+        return null;
     }
 
     public static int getWorkProgress(BeerBrewerTile beerBrewerTile) {

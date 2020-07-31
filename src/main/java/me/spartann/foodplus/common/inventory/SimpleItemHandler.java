@@ -5,6 +5,8 @@ import net.minecraft.item.Items;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.items.ItemStackHandler;
 
+import javax.annotation.Nullable;
+
 public class SimpleItemHandler extends ItemStackHandler {
 
     public SimpleItemHandler(int size, ItemStack... stacks) {
@@ -34,8 +36,22 @@ public class SimpleItemHandler extends ItemStackHandler {
         super.setStackInSlot(slot, stack);
     }
 
+    public ItemStack incrStackSize(int index, int count, @Nullable ItemStack defaultStack) {
+        ItemStack stack = getStackInSlot(index);
+        if(stack.isEmpty() && defaultStack != null) {
+            ItemStack res = this.insertItem(index, defaultStack, false);
+            this.onContentsChanged(index);
+            return res;
+        }
+        stack.grow(count);
+        this.onContentsChanged(index);
+        return stack;
+    }
+
     public ItemStack decrStackSize(int index, int count) {
         ItemStack stack = getStackInSlot(index);
+        if(stack.isEmpty())
+            return ItemStack.EMPTY;
         stack.shrink(count);
         this.onContentsChanged(index);
         return stack;
