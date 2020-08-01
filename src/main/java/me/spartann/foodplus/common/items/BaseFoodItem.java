@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 public class BaseFoodItem extends Item {
 
     public static final Food FRUIT_FOOD = build(4, 1.2F);
+    public static final Food JUICE = build(8, 0.7F);
 
     public BaseFoodItem(Properties properties, Food food) {
         super(properties.food(food));

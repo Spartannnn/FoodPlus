@@ -1,6 +1,6 @@
-package me.spartann.foodplus.common.items.juicer.juice;
+package me.spartann.foodplus.common.items.juicer;
 
-import me.spartann.foodplus.common.registries.ModItems;
+import me.spartann.foodplus.common.items.BaseFoodItem;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -21,7 +21,7 @@ public class JuiceBottleItem extends Item {
     public static final String NBT_TAG_NAME_FULLNESS = "fullness";
 
     public JuiceBottleItem(Properties properties) {
-        super(properties);
+        super(properties.food(BaseFoodItem.JUICE));
         this.addPropertyOverride(new ResourceLocation("fullness"), JuiceBottleItem::getFullnessPropertyOverride);
     }
 
@@ -80,26 +80,34 @@ public class JuiceBottleItem extends Item {
 
     @Override
     public int getUseDuration(ItemStack stack) {
-        final int TICKS_PER_SECOND = 20;
-        final int DRINK_DURATION_SECONDS = 3;
-        return DRINK_DURATION_SECONDS * TICKS_PER_SECOND;
+        return 32;
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand hand) {
-        ItemStack itemStackHeld = playerIn.getHeldItem(hand);
-        JuiceBottleFullness fullness = getFullness(itemStackHeld);
-        if (fullness == JuiceBottleFullness.EMPTY) return new ActionResult(ActionResultType.FAIL, itemStackHeld);
-
-        playerIn.setActiveHand(hand);
-        return new ActionResult(ActionResultType.CONSUME, itemStackHeld);
+        if (this.isFood()) {
+            ItemStack itemstack = playerIn.getHeldItem(hand);
+            JuiceBottleFullness fullness = getFullness(itemstack);
+            if(fullness == JuiceBottleFullness.EMPTY) return ActionResult.resultFail(itemstack);
+            if (playerIn.canEat(this.getFood().canEatWhenFull())) {
+                playerIn.setActiveHand(hand);
+                return ActionResult.resultConsume(itemstack);
+            } else {
+                return ActionResult.resultFail(itemstack);
+            }
+        } else {
+            return ActionResult.resultPass(playerIn.getHeldItem(hand));
+        }
     }
 
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
-        JuiceBottleFullness fullness = getFullness(stack);
-        fullness = fullness.decreaseFullnessByOneStep();
-        fullness.putIntoNBT(stack.getTag(), NBT_TAG_NAME_FULLNESS);
+        if(this.isFood()) {
+            JuiceBottleFullness fullness = getFullness(stack);
+            fullness = fullness.decreaseFullnessByOneStep();
+            fullness.putIntoNBT(stack.getTag(), NBT_TAG_NAME_FULLNESS);
+            return entityLiving.onFoodEaten(worldIn, stack);
+        }
         return stack;
     }
 

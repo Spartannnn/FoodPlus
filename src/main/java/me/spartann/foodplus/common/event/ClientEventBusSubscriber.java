@@ -2,7 +2,7 @@ package me.spartann.foodplus.common.event;
 
 import me.spartann.foodplus.FoodPlusMod;
 import me.spartann.foodplus.client.gui.JuicerScreen;
-import me.spartann.foodplus.common.items.juicer.juice.JuiceBottleColor;
+import me.spartann.foodplus.common.items.juicer.JuiceBottleColor;
 import me.spartann.foodplus.common.registries.ModBlocks;
 import me.spartann.foodplus.common.registries.ModContainers;
 import me.spartann.foodplus.common.registries.ModItems;
