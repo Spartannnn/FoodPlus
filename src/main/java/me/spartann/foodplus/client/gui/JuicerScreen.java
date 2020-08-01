@@ -3,16 +3,18 @@ package me.spartann.foodplus.client.gui;
 import com.mojang.blaze3d.systems.RenderSystem;
 import me.spartann.foodplus.FoodPlusMod;
 import me.spartann.foodplus.common.container.JuicerContainer;
-import me.spartann.foodplus.common.tile.JuicerBlockTile;
+import me.spartann.foodplus.common.tile.JuicerTile;
+import me.spartann.foodplus.common.tile.RecipeTile;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
+import java.awt.*;
+
 public class JuicerScreen extends ContainerScreen<JuicerContainer> {
 
-    private static final ResourceLocation TEXTURE = new ResourceLocation(FoodPlusMod.MOD_ID, "textures/gui/container/juicer.png");
-
+    private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(FoodPlusMod.MOD_ID, "textures/gui/container/juicer.png");
 
     public JuicerScreen(JuicerContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
         super(screenContainer, inv, titleIn);
@@ -21,22 +23,33 @@ public class JuicerScreen extends ContainerScreen<JuicerContainer> {
     }
 
     @Override
-    public void render(final int mouseX, final int mouseY, final float partialTicks) {
-        this.renderBackground();
-        super.render(mouseX, mouseY, partialTicks);
-        this.renderHoveredToolTip(mouseX, mouseY);
+    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
+        super.drawGuiContainerForegroundLayer(mouseX, mouseY);
+        this.font.drawString("WorkingTicks: " + container.tile.workingTicks, 5, 5, Color.GRAY.getRGB());
     }
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-        RenderSystem.color4f(1.0f, 1.0f, 1.0f, 1.0f);
-        this.minecraft.getTextureManager().bindTexture(TEXTURE);
-        int i = this.guiLeft;
-        int j = this.guiTop;
-        this.blit(i, j, 0, 0, this.xSize, this.ySize);
+        RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+        getMinecraft().getTextureManager().bindTexture(BACKGROUND_TEXTURE);
+        int startX = this.guiLeft;
+        int startY = this.guiTop;
 
-        int l = JuicerBlockTile.getWorkProgress(this.container.getTile());
-        this.blit(i + 70, j + 20, 176, 14, l + 1, 16);
+        this.blit(startX, startY, 0, 0, this.xSize, this.ySize);
 
+        final JuicerTile tileEntity = container.tile;
+        if (tileEntity.workingTicks > 0) {
+            int arrowWidth = getWorkingProgress();
+            this.blit(startX + 70, startY + 21, 176, 14, arrowWidth, 17);
+        }
+    }
+
+    private int getWorkingProgress() {
+        final JuicerTile tileEntity = this.container.tile;
+        final int workTicks = tileEntity.workingTicks;
+        final int maxSmeltTime = tileEntity.maxWorkTicks;
+        if (workTicks <= 0 || maxSmeltTime <= 0)
+            return 0;
+        return (maxSmeltTime - workTicks) * RecipeTile.DEFAULT_ARROW_WIDTH / maxSmeltTime;
     }
 }

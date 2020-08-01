@@ -1,10 +1,10 @@
 package me.spartann.foodplus.common.blocks;
 
 import me.spartann.foodplus.common.registries.ModTileEntities;
-import me.spartann.foodplus.common.tile.JuicerBlockTile;
+import me.spartann.foodplus.common.tile.JuicerTile;
 import net.minecraft.tileentity.TileEntity;
 
-public class JuicerBlock extends FPContainerBlock<JuicerBlockTile> {
+public class JuicerBlock extends FPContainerBlock<JuicerTile> {
 
     public JuicerBlock(Properties properties) {
         super(properties);
@@ -17,8 +17,8 @@ public class JuicerBlock extends FPContainerBlock<JuicerBlockTile> {
     }
 
     @Override
-    public Class<JuicerBlockTile> tileEntityClass() {
-        return JuicerBlockTile.class;
+    public Class<JuicerTile> tileEntityClass() {
+        return JuicerTile.class;
     }
 
 

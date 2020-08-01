@@ -1,9 +1,11 @@
 package me.spartann.foodplus.common.blocks;
 
+import me.spartann.foodplus.common.tile.ContainerTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
@@ -16,7 +18,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
-public abstract class FPContainerBlock<T extends INamedContainerProvider> extends Block {
+public abstract class FPContainerBlock<T extends ContainerTile> extends Block {
 
     public FPContainerBlock(Properties properties) {
         super(properties);
@@ -41,10 +43,26 @@ public abstract class FPContainerBlock<T extends INamedContainerProvider> extend
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         if (!worldIn.isRemote) {
             TileEntity tileEntity = worldIn.getTileEntity(pos);
-            if (tileEntity != null && (tileEntity.getClass().equals(tileEntityClass()) || tileEntity.getClass().isInstance(tileEntityClass())))
+            if (tileEntity != null && (tileEntity.getClass().equals(tileEntityClass()) || tileEntity.getClass().isInstance(tileEntityClass()))) {
                 NetworkHooks.openGui((ServerPlayerEntity) player, (INamedContainerProvider) tileEntity, pos);
+                return ActionResultType.SUCCESS;
+            }
         }
 
         return ActionResultType.PASS;
     }
+
+    @Override
+    public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
+        if(!worldIn.isRemote) {
+            TileEntity tileEntity = worldIn.getTileEntity(pos);
+            if(tileEntity != null && (tileEntity.getClass().equals(tileEntityClass()) || tileEntity.getClass().isInstance(tileEntityClass()))) {
+                ContainerTile containerTile = (ContainerTile) tileEntity;
+                InventoryHelper.dropItems(worldIn, pos, containerTile.getInventoryItems());
+            }
+        }
+
+        super.onReplaced(state, worldIn, pos, newState, isMoving);
+    }
+
 }

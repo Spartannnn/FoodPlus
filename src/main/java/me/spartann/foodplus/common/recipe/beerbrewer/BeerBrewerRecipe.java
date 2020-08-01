@@ -68,7 +68,7 @@ public class BeerBrewerRecipe implements IBeerBrewerRecipe {
     }
 
     @Override
-    public int getSecondsUntilFinish() {
+    public int getWorkingTime() {
         return secondsUntilFinish * 20;
     }
 }

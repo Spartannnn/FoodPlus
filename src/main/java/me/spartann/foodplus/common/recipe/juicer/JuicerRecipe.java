@@ -16,19 +16,18 @@ public class JuicerRecipe implements IJuicerRecipe {
     private final ResourceLocation id;
     private final ItemStack output;
     private final Ingredient input;
+    private final int secondsUntilFinish;
 
-    public JuicerRecipe(ResourceLocation id, Ingredient input, ItemStack output) {
+    public JuicerRecipe(ResourceLocation id, Ingredient input, ItemStack output, int secondsUntilFinish) {
         this.id = id;
         this.output = output;
         this.input = input;
+        this.secondsUntilFinish = secondsUntilFinish;
     }
 
     @Override
     public boolean matches(RecipeWrapper inv, @Nullable World worldIn) {
-        if (this.input.getMatchingStacks()[0].isItemEqual(inv.getStackInSlot(0))) {
-            return true;
-        }
-        return false;
+        return input.test(inv.getStackInSlot(0)) || input.getMatchingStacks()[0].isItemEqual(inv.getStackInSlot(0));
     }
 
     @Override
@@ -48,16 +47,21 @@ public class JuicerRecipe implements IJuicerRecipe {
 
     @Override
     public IRecipeSerializer<?> getSerializer() {
-        return ModRecipeTypes.JUICER_RECIPE_SERIALIZER.get();
+        return ModRecipeTypes.JUICER_SERIALIZER.get();
     }
 
     @Override
     public NonNullList<Ingredient> getIngredients() {
-        return NonNullList.from(null, this.input);
+        return NonNullList.from(null, input);
     }
 
+    @Override
     public Ingredient getInput() {
-        return this.input;
+        return input;
     }
 
+    @Override
+    public int getWorkingTime() {
+        return secondsUntilFinish;
+    }
 }

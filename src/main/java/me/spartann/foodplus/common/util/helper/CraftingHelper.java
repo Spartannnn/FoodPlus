@@ -1,7 +1,10 @@
 package me.spartann.foodplus.common.util.helper;
 
+import com.google.common.collect.Sets;
+import me.spartann.foodplus.common.recipe.IModRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.world.ClientWorld;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeType;
@@ -21,6 +24,16 @@ public class CraftingHelper {
 
     public static Set<IRecipe<?>> findRecipesByType(IRecipeType<?> type, World world) {
         return world != null ? world.getRecipeManager().getRecipes().stream().filter(r -> r.getType() == type).collect(Collectors.toSet()) : Collections.emptySet();
+    }
+
+    public static <T extends IInventory, R extends IRecipe<T>> Set<IModRecipe<T>> findModRecipesByType(IRecipeType<R> type, World world) {
+        Set<IRecipe<?>> recipes = world.getRecipeManager().getRecipes().stream().filter(r -> r.getType() == type).collect(Collectors.toSet());
+        Set<IModRecipe<T>> modRecipes = Sets.newHashSet();
+        for(IRecipe<?> rec : recipes) {
+            if(rec instanceof IModRecipe)
+                modRecipes.add((IModRecipe<T>) rec);
+        }
+        return modRecipes;
     }
 
     public static Set<IRecipe<?>> findRecipesByType(IRecipeType<?> type) {

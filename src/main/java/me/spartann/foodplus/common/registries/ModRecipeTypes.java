@@ -22,11 +22,11 @@ public class ModRecipeTypes {
 
     public static final DeferredRegister<IRecipeSerializer<?>> SERIALIZERS = new DeferredRegister<>(ForgeRegistries.RECIPE_SERIALIZERS, FoodPlusMod.MOD_ID);
 
-    public static final RegistryObject<IRecipeSerializer<IJuicerRecipe>> JUICER_RECIPE_SERIALIZER = registerSerializer(IJuicerRecipe.TYPE_ID, () -> new OneInOneOutSerializer<>(JuicerRecipe::new));
     public static final RegistryObject<IRecipeSerializer<IBeerBrewerRecipe>> BEER_BREWER_SERIALIZER = registerSerializer(IBeerBrewerRecipe.TYPE_ID, () -> new ThreeInOnOutSerializer<>(BeerBrewerRecipe::new));
+    public static final RegistryObject<IRecipeSerializer<IJuicerRecipe>> JUICER_SERIALIZER = registerSerializer(IJuicerRecipe.TYPE_ID, () -> new OneInOneOutSerializer<>(JuicerRecipe::new));
 
-    public static final IRecipeType<IJuicerRecipe> JUICER_RECIPE_TYPE = registerType(IJuicerRecipe.TYPE_ID);
     public static final IRecipeType<IBeerBrewerRecipe> BEER_BREWER_RECIPE_TYPE = registerType(IBeerBrewerRecipe.TYPE_ID);
+    public static final IRecipeType<IJuicerRecipe> JUICER_RECIPE_TYPE = registerType(IJuicerRecipe.TYPE_ID);
 
     private static <T extends IRecipeType<?>> T registerType(ResourceLocation id) {
         return (T) Registry.register(Registry.RECIPE_TYPE, id, new RecipeType<>());

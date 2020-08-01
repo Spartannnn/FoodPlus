@@ -1,11 +1,9 @@
 package me.spartann.foodplus.common.blocks;
 
 import me.spartann.foodplus.common.registries.ModTileEntities;
-import me.spartann.foodplus.common.tile.BasicItemHolderTile;
 import me.spartann.foodplus.common.tile.BeerBrewerTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.IBooleanFunction;

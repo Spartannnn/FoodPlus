@@ -5,10 +5,11 @@ import me.spartann.foodplus.common.recipe.IThreeInOneOutRecipe;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+import net.minecraftforge.items.wrapper.RecipeWrapper;
 
 import javax.annotation.Nonnull;
 
-public interface IBeerBrewerRecipe extends IThreeInOneOutRecipe {
+public interface IBeerBrewerRecipe extends IThreeInOneOutRecipe<RecipeWrapper> {
 
     ResourceLocation TYPE_ID = new ResourceLocation(FoodPlusMod.MOD_ID, "beer_brewer");
 

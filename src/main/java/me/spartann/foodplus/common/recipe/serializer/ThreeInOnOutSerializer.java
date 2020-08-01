@@ -10,11 +10,12 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.items.wrapper.RecipeWrapper;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
 
-public class ThreeInOnOutSerializer<T extends IThreeInOneOutRecipe> extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<T> {
+public class ThreeInOnOutSerializer<T extends IThreeInOneOutRecipe<RecipeWrapper>> extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<T> {
 
     private IFactory<? extends IRecipe<?>> factory;
 
@@ -48,10 +49,10 @@ public class ThreeInOnOutSerializer<T extends IThreeInOneOutRecipe> extends Forg
             ingredient.write(buffer);
         }
         buffer.writeItemStack(recipe.getRecipeOutput());
-        buffer.writeInt(recipe.getSecondsUntilFinish());
+        buffer.writeInt(recipe.getWorkingTime());
     }
 
-    public interface IFactory<T extends IThreeInOneOutRecipe> {
+    public interface IFactory<T extends IThreeInOneOutRecipe<RecipeWrapper>> {
         T create(ResourceLocation recipeId, Ingredient[] inputs, ItemStack output, int secondsUntilFinish);
     }
 }

@@ -1,51 +1,93 @@
 package me.spartann.foodplus.common.tile;
 
+import me.spartann.foodplus.common.util.FunctionalIntReferenceHolder;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.INameable;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.Direction;
+import net.minecraft.util.NonNullList;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
 
-public abstract class ContainerTile extends BasicItemHolderTile implements INamedContainerProvider, INameable {
+public abstract class ContainerTile extends TileEntity implements INamedContainerProvider {
 
-    private ITextComponent customName;
+    private static final String INVENTORY_TAG = "inventory";
 
-    public ContainerTile(TileEntityType<?> tileEntityTypeIn, int inventorySlots, ItemStack... initialStacks) {
-        super(tileEntityTypeIn, inventorySlots, initialStacks);
+    public final ItemStackHandler inventory;
+    protected final LazyOptional<ItemStackHandler> inventoryCapabilityExternal;
+    public List<FunctionalIntReferenceHolder> intReferenceHolders;
+
+    public ContainerTile(TileEntityType<?> tileEntityTypeIn, int inventorySlots) {
+        super(tileEntityTypeIn);
+        this.inventory = new ItemStackHandler(inventorySlots) {
+            @Override
+            protected void onContentsChanged(int slot) {
+                super.onContentsChanged(slot);
+                ContainerTile.this.markDirty();
+            }
+        };
+        this.inventoryCapabilityExternal = LazyOptional.of(() -> this.inventory);
+        this.intReferenceHolders = this.getIntReferenceHolder();
     }
 
+    public ItemStackHandler getInventory() {
+        return inventory;
+    }
+
+    @Nonnull
+    @Override
+    public <T> LazyOptional<T> getCapability(@Nonnull final Capability<T> cap, @Nullable final Direction side) {
+        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+            return inventoryCapabilityExternal.cast();
+        }
+        return super.getCapability(cap, side);
+    }
+
+    public abstract void readData(CompoundNBT nbt);
+
+    public abstract CompoundNBT writeData(CompoundNBT nbt);
+
+    public abstract List<FunctionalIntReferenceHolder> getIntReferenceHolder();
+
+    public NonNullList<ItemStack> getInventoryItems() {
+        NonNullList<ItemStack> list = NonNullList.withSize(this.inventory.getSlots(), ItemStack.EMPTY);
+        for(int i = 0; i < this.inventory.getSlots(); i++)
+            list.add(this.inventory.getStackInSlot(i));
+        return list;
+    }
+
+    @Override
     public void read(CompoundNBT compound) {
         super.read(compound);
-        if (compound.contains("CustomName", 8)) {
-            this.customName = ITextComponent.Serializer.fromJson(compound.getString("CustomName"));
-        }
+        this.inventory.deserializeNBT(compound);
+        this.readData(compound);
     }
 
+    @Override
     public CompoundNBT write(CompoundNBT compound) {
-        System.out.println(this.inventory);
         super.write(compound);
-        if (this.customName != null) {
-            compound.putString("CustomName", ITextComponent.Serializer.toJson(this.customName));
-        }
-
+        compound.put(INVENTORY_TAG, this.inventory.serializeNBT());
+        this.writeData(compound);
         return compound;
     }
 
-    public ITextComponent getName() {
-        return this.customName != null ? this.customName : this.getDefaultName();
+    @Override
+    public CompoundNBT getUpdateTag() {
+        return this.write(new CompoundNBT());
     }
 
-    public ITextComponent getDisplayName() {
-        return getName();
+    @Override
+    public void remove() {
+        super.remove();
+        inventoryCapabilityExternal.invalidate();
     }
 
-    @Nullable
-    public ITextComponent getCustomName() {
-        return this.customName;
-    }
-
-    protected abstract ITextComponent getDefaultName();
 }

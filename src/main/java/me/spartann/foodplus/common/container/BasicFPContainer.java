@@ -23,7 +23,7 @@ public abstract class BasicFPContainer<T extends ContainerTile & INamedContainer
     public BasicFPContainer(@Nullable ContainerType<?> type, int id, T tile) {
         super(type, id);
         this.tile = tile;
-        this.itemHandler = tile.getItemHandler();
+        this.itemHandler = null;
         this.canInteract = IWorldPosCallable.of(tile.getWorld(), tile.getPos());
     }
 

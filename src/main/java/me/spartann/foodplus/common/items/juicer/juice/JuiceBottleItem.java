@@ -92,7 +92,7 @@ public class JuiceBottleItem extends Item {
         if (fullness == JuiceBottleFullness.EMPTY) return new ActionResult(ActionResultType.FAIL, itemStackHeld);
 
         playerIn.setActiveHand(hand);
-        return new ActionResult(ActionResultType.PASS, itemStackHeld);
+        return new ActionResult(ActionResultType.CONSUME, itemStackHeld);
     }
 
     @Override
