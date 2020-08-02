@@ -1,8 +1,8 @@
 package com.spartann.foodplus.common.group;
 
+import com.spartann.foodplus.common.registries.ModItems;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 
 public class FoodPlusGroup extends ItemGroup {
 
@@ -14,6 +14,6 @@ public class FoodPlusGroup extends ItemGroup {
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(Items.STONE);
+        return new ItemStack(ModItems.BEER.get());
     }
 }

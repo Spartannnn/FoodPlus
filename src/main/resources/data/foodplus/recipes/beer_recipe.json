@@ -1,0 +1,16 @@
+{
+  "type": "foodplus:beer_brewer",
+  "input_0": {
+    "item": "foodplus:hop"
+  },
+  "input_1": {
+    "item": "foodplus:malt"
+  },
+  "input_2": {
+    "item": "minecraft:water_bucket"
+  },
+  "output": {
+    "item": "foodplus:beer"
+  },
+  "secondsUntilFinish": 10
+}

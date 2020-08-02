@@ -59,8 +59,8 @@ public enum JuiceBottleFlavour implements IStringSerializable {
     public static JuiceBottleFlavour getFlavourByStack(ItemStack stack) {
         CompoundNBT tag = stack.getTag();
         byte flavourID = 0;
-        if(tag != null && tag.contains(JuiceBottleItem.NBT_TAG_NAME_FULLNESS))
-            flavourID = tag.getByte(JuiceBottleItem.NBT_TAG_NAME_FULLNESS);
+        if(tag != null && tag.contains(ItemJuiceBottle.NBT_TAG_NAME_FULLNESS))
+            flavourID = tag.getByte(ItemJuiceBottle.NBT_TAG_NAME_FULLNESS);
         Optional<JuiceBottleFlavour> flavour = getFlavourFromID(flavourID);
         return flavour.orElse(PEAR);
     }

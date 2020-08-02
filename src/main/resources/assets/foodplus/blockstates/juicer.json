@@ -1,7 +1,12 @@
 {
   "variants": {
-    "": {
-      "model": "foodplus:block/juicer"
-    }
+    "facing=north,lit=false": { "model": "foodplus:block/juicer" },
+    "facing=south,lit=false": { "model": "foodplus:block/juicer", "y": 180 },
+    "facing=west,lit=false":  { "model": "foodplus:block/juicer", "y": 270 },
+    "facing=east,lit=false":  { "model": "foodplus:block/juicer", "y": 90 },
+    "facing=north,lit=true": { "model": "foodplus:block/juicer_working" },
+    "facing=south,lit=true": { "model": "foodplus:block/juicer_working", "y": 180 },
+    "facing=west,lit=true":  { "model": "foodplus:block/juicer_working", "y": 270 },
+    "facing=east,lit=true":  { "model": "foodplus:block/juicer_working", "y": 90 }
   }
 }

@@ -25,6 +25,7 @@ public class LanguagesDataGen extends LanguageProvider {
         this.addItem(ModItems.MANGO_FRUIT, "Mango");
         this.addItem(ModItems.SALT, "Salt");
         this.addItem(ModItems.HOP_SEED, "Hop Seed");
+        this.addItem(ModItems.MJOLNIR, "Mjolnir");
     }
 
     private void blocks() {

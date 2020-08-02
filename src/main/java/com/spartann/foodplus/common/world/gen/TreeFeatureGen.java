@@ -11,9 +11,8 @@ import net.minecraftforge.common.BiomeDictionary;
 public class TreeFeatureGen {
 
     public static void generateTrees() {
-        BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach(biome -> biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, fruitTree(0.15F)));
-        BiomeDictionary.getBiomes(BiomeDictionary.Type.PLAINS).forEach(biome -> biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, fruitTree(0.07F)));
-        BiomeDictionary.getBiomes(BiomeDictionary.Type.JUNGLE).forEach(biome -> biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, fruitTree(0.20F)));
+        BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).forEach(biome -> biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, fruitTree(0.1F)));
+        BiomeDictionary.getBiomes(BiomeDictionary.Type.JUNGLE).forEach(biome -> biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, fruitTree(0.15F)));
     }
 
     private static ConfiguredFeature<?, ?> fruitTree(float chance) {

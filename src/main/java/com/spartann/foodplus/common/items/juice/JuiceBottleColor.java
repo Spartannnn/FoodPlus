@@ -18,7 +18,7 @@ public class JuiceBottleColor implements IItemColor {
                 case 0:
                     return Color.WHITE.getRGB();
                 case 1: {
-                    JuiceBottleFlavour enumBottleFlavour = JuiceBottleItem.getFlavour(stack);
+                    JuiceBottleFlavour enumBottleFlavour = ItemJuiceBottle.getFlavour(stack);
                     return enumBottleFlavour.getRenderColour().getRGB();
                 }
                 default: {

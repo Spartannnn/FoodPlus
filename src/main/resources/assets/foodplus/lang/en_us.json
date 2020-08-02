@@ -15,10 +15,14 @@
   "block.foodplus.pear_log": "Pear Log",
   "block.foodplus.pear_sapling": "Pear Sapling",
   "block.foodplus.salt_ore": "Salt Ore",
+
   "item.foodplus.cherry_fruit": "Cherry",
   "item.foodplus.harvest_tool": "Harvesting Tool",
   "item.foodplus.mango_fruit": "Mango",
   "item.foodplus.pear_fruit": "Pear",
   "item.foodplus.salt": "Salt",
-  "item.foodplus.mjolnir": "Mjolnir"
+  "item.foodplus.mjolnir": "Mjolnir",
+
+  "foodplus.mjolnir.desc": "Mjolnir. Hammer of Thor"
+
 }

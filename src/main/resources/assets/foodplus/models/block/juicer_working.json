@@ -2,7 +2,7 @@
   "parent": "block/orientable",
   "textures": {
     "top": "foodplus:blocks/juicer_top",
-    "front": "foodplus:blocks/juicer_front",
+    "front": "foodplus:blocks/juicer_front_working",
     "side": "foodplus:blocks/juicer_side",
     "bottom": "foodplus:blocks/juicer_bottom"
   }
