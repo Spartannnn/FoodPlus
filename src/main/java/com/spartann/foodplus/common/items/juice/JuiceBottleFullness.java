@@ -1,4 +1,4 @@
-package com.spartann.foodplus.common.items.juicer;
+package com.spartann.foodplus.common.items.juice;
 
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.IStringSerializable;

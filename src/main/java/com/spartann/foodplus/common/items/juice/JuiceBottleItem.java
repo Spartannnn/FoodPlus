@@ -1,4 +1,4 @@
-package com.spartann.foodplus.common.items.juicer;
+package com.spartann.foodplus.common.items.juice;
 
 import com.spartann.foodplus.common.items.BaseFoodItem;
 import net.minecraft.entity.LivingEntity;

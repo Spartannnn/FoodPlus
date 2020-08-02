@@ -3,7 +3,7 @@ package com.spartann.foodplus.common.registries;
 import com.spartann.foodplus.FoodPlusMod;
 import com.spartann.foodplus.common.group.FoodPlusGroup;
 import com.spartann.foodplus.common.items.*;
-import com.spartann.foodplus.common.items.juicer.JuiceBottleItem;
+import com.spartann.foodplus.common.items.juice.JuiceBottleItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.RegistryObject;

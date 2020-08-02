@@ -2,9 +2,9 @@ package com.spartann.foodplus.common.tile;
 
 import com.spartann.foodplus.common.container.JuicerContainer;
 import com.spartann.foodplus.common.items.BaseFoodItem;
-import com.spartann.foodplus.common.items.juicer.JuiceBottleFlavour;
-import com.spartann.foodplus.common.items.juicer.JuiceBottleFullness;
-import com.spartann.foodplus.common.items.juicer.JuiceBottleItem;
+import com.spartann.foodplus.common.items.juice.JuiceBottleFlavour;
+import com.spartann.foodplus.common.items.juice.JuiceBottleFullness;
+import com.spartann.foodplus.common.items.juice.JuiceBottleItem;
 import com.spartann.foodplus.common.recipe.juicer.IJuicerRecipe;
 import com.spartann.foodplus.common.registries.ModRecipeTypes;
 import com.spartann.foodplus.common.registries.ModTileEntities;
