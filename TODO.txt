@@ -24,11 +24,3 @@ Nuggets         (name: nuggets)
 Salad           (name: salad)
 Salad variants (just more variants) (name: salad_variants_X) [the x is the number, start with 0 and every time you added one more variant increase the number]
 Wurst           (name: sasuage)
-
-
-
-Blocks
-Juicer:
-    3 Side Textures (can be the same)   (name: juicer_side)
-    1 Front Texture                     (name: juicer_front)
-    2 End Textures (Top and Bottom)     (name: juicer_end)
