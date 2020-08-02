@@ -7,6 +7,7 @@ Malz             (name: malt)
 Hopfen           (name: hop)
 Hopfen Seeds     (name: hop seed)
 Bier Krug (full) (name: beer)
+Mjolnir          (name: mjolnir) (just google "Mjolnir" :D)
 
 Blocks
 Juicer:

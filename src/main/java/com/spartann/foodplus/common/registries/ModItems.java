@@ -2,10 +2,7 @@ package com.spartann.foodplus.common.registries;
 
 import com.spartann.foodplus.FoodPlusMod;
 import com.spartann.foodplus.common.group.FoodPlusGroup;
-import com.spartann.foodplus.common.items.BaseBlockItem;
-import com.spartann.foodplus.common.items.BaseFoodItem;
-import com.spartann.foodplus.common.items.HarvesterToolItem;
-import com.spartann.foodplus.common.items.SaltItem;
+import com.spartann.foodplus.common.items.*;
 import com.spartann.foodplus.common.items.juicer.JuiceBottleItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.NonNullList;
@@ -30,6 +27,7 @@ public class ModItems {
 
     //TOOLS:
     public static final RegistryObject<Item> HARVEST_TOOL = ITEMS.register("harvest_tool", () -> new HarvesterToolItem(new Item.Properties().group(FoodPlusGroup.INSTANCE).maxStackSize(1)));
+    public static final RegistryObject<Item> MJOLNIR = ITEMS.register("mjolnir", () -> new MjolnirItem(new Item.Properties().group(FoodPlusGroup.INSTANCE)));
 
     //BLOCK ITEMS
     public static final RegistryObject<Item> HOP_SEED = ITEMS.register("hop_seed", () -> new BaseBlockItem(ModBlocks.HOP_CROP.get(), new Item.Properties()));
