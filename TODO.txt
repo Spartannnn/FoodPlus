@@ -3,11 +3,11 @@ Needed textures:
 Note: the words behind the "name" should be the file names
 
 Items:
-Malz             (name: malt)
-Hopfen           (name: hop)
-Hopfen Seeds     (name: hop seed)
-Mjolnir          (name: mjolnir) (just google "Mjolnir" :D)
-Messer           (name: knife)
+Malz             (name: malt) 	✓
+Hopfen           (name: hop)    	
+Hopfen Seeds     (name: hop seed)	✓
+Mjolnir          (name: mjolnir) (just google "Mjolnir" :D)	✓
+Messer           (name: knife)	✓
 
 More food items:
 Chips           (name: crisps)
