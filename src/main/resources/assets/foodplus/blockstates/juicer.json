@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "foodplus:block/juicer" }
+    "": {
+      "model": "foodplus:block/juicer"
+    }
   }
 }

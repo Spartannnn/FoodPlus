@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "foodplus:block/pear_leaves" }
+    "": {
+      "model": "foodplus:block/pear_leaves"
+    }
   }
 }

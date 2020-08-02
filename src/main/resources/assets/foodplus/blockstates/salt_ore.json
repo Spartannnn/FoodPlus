@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "foodplus:block/salt_ore" }
+    "": {
+      "model": "foodplus:block/salt_ore"
+    }
   }
 }

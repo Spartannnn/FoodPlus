@@ -1,0 +1,12 @@
+package com.spartann.foodplus.common.items;
+
+import com.spartann.foodplus.common.group.FoodPlusGroup;
+import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
+
+public class BaseBlockItem extends BlockItem {
+
+    public BaseBlockItem(Block blockIn, Properties builder) {
+        super(blockIn, builder.group(FoodPlusGroup.INSTANCE));
+    }
+}

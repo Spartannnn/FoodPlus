@@ -1,7 +1,16 @@
 {
   "variants": {
-    "axis=y":  { "model": "foodplus:block/cherry_log" },
-    "axis=z":   { "model": "foodplus:block/cherry_log", "x": 90 },
-    "axis=x":   { "model": "foodplus:block/cherry_log", "x": 90, "y": 90 }
+    "axis=x": {
+      "model": "foodplus:block/cherry_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "foodplus:block/cherry_log"
+    },
+    "axis=z": {
+      "model": "foodplus:block/cherry_log",
+      "x": 90
+    }
   }
 }

@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "foodplus:block/cherry_sapling" }
+    "": {
+      "model": "foodplus:block/cherry_sapling"
+    }
   }
 }

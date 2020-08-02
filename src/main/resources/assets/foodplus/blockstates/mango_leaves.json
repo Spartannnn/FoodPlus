@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "foodplus:block/mango_leaves" }
+    "": {
+      "model": "foodplus:block/mango_leaves"
+    }
   }
 }

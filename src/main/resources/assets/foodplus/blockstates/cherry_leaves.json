@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "foodplus:block/cherry_leaves" }
+    "": {
+      "model": "foodplus:block/cherry_leaves"
+    }
   }
 }
