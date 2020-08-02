@@ -1,8 +1,15 @@
-FOOD:
+Needed textures:
 
-New generald food:
+Note: the words behind the "name" should be the file names
 
-Banane
-Kiwi
-Ananas
-Birne
+Items:
+Malz             (name: malt)
+Hopfen           (name: hop)
+Hopfen Seeds     (name: hop seed)
+Bier Krug (full) (name: beer)
+
+Blocks
+Juicer:
+    3 Side Textures (can be the same)
+    1 Front Texture
+    2 End Textures (Top and Bottom)

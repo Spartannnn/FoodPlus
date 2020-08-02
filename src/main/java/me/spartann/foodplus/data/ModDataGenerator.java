@@ -10,7 +10,7 @@ import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 @Mod.EventBusSubscriber(modid = FoodPlusMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModDataGenerator {
 
-    private static final boolean ONLY_LANG = false;
+    private static final boolean ONLY_LANG = true;
 
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {

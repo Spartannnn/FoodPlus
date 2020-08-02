@@ -1,6 +1,8 @@
 package me.spartann.foodplus.common.tile;
 
+import com.google.common.collect.Lists;
 import me.spartann.foodplus.common.recipe.IModRecipe;
+import me.spartann.foodplus.common.util.FunctionalIntReferenceHolder;
 import me.spartann.foodplus.common.util.MethodsUtil;
 import me.spartann.foodplus.common.util.helper.CraftingHelper;
 import net.minecraft.item.ItemStack;
@@ -10,15 +12,17 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
 public abstract class RecipeTile<R extends IModRecipe<RecipeWrapper>> extends ContainerTile implements ITickableTileEntity {
 
     public static final int DEFAULT_ARROW_WIDTH = 24;
+    public static final int DEFAULT_BUBBLES_HEIGHT = 29;
 
     public int workingTicks = 0;
-    public int maxWorkTicks = 40; //Default = 200
+    public int maxWorkTicks = 0;
     public int animTime = 0;
     public R currentRecipe;
     public boolean craftingFlag = false;
@@ -50,6 +54,17 @@ public abstract class RecipeTile<R extends IModRecipe<RecipeWrapper>> extends Co
     public abstract int[] getInputSlots();
 
     public abstract boolean notIdle();
+
+    /**
+     * Overwrite if you have to add more data to sync
+     * @return a list of {@link FunctionalIntReferenceHolder}
+     */
+    @Override
+    public List<FunctionalIntReferenceHolder> getIntReferenceHolder() {
+        return Lists.newArrayList(new FunctionalIntReferenceHolder(() -> workingTicks, v -> workingTicks = v),
+                new FunctionalIntReferenceHolder(() -> animTime, v -> animTime = v),
+                new FunctionalIntReferenceHolder(() -> maxWorkTicks, v -> maxWorkTicks = v));
+    }
 
     @Override
     public void tick() {
@@ -112,7 +127,7 @@ public abstract class RecipeTile<R extends IModRecipe<RecipeWrapper>> extends Co
         this.craftingFlag = false;
     }
 
-    private ItemStack[] getCurrentInputItems() {
+    protected ItemStack[] getCurrentInputItems() {
         ItemStack[] stacks = new ItemStack[this.getInputSlots().length];
         for (int i = 0; i < this.getInputSlots().length; i++)
             stacks[i] = this.inventory.getStackInSlot(this.getInputSlots()[i]);

@@ -1,6 +1,5 @@
 package me.spartann.foodplus.common.tile;
 
-import com.google.common.collect.Lists;
 import me.spartann.foodplus.common.container.JuicerContainer;
 import me.spartann.foodplus.common.items.BaseFoodItem;
 import me.spartann.foodplus.common.items.juicer.JuiceBottleFlavour;
@@ -9,8 +8,8 @@ import me.spartann.foodplus.common.items.juicer.JuiceBottleItem;
 import me.spartann.foodplus.common.recipe.juicer.IJuicerRecipe;
 import me.spartann.foodplus.common.registries.ModRecipeTypes;
 import me.spartann.foodplus.common.registries.ModTileEntities;
-import me.spartann.foodplus.common.util.FunctionalIntReferenceHolder;
 import me.spartann.foodplus.common.util.TextComponentUtil;
+import me.spartann.foodplus.common.util.helper.ItemStackHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -21,12 +20,12 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
-import java.util.List;
+import java.util.function.BooleanSupplier;
 
 public class JuicerTile extends RecipeTile<IJuicerRecipe> {
 
     public JuicerTile() {
-        super(ModTileEntities.JUICER_TILE_2.get(), 2);
+        super(ModTileEntities.JUICER_TILE.get(), 2);
     }
 
     @Override
@@ -51,7 +50,7 @@ public class JuicerTile extends RecipeTile<IJuicerRecipe> {
             JuiceBottleItem.setFlavour(stack, flavour);
             JuiceBottleItem.setFullness(stack, JuiceBottleFullness.FULL);
             boolean canInsert = this.inventory.insertItem(1, stack, false).isEmpty();
-            if(!canInsert)
+            if (!canInsert)
                 this.idle = true;
             else
                 this.finishCrafting();
@@ -65,16 +64,21 @@ public class JuicerTile extends RecipeTile<IJuicerRecipe> {
     }
 
     @Override
-    public List<FunctionalIntReferenceHolder> getIntReferenceHolder() {
-        return Lists.newArrayList(new FunctionalIntReferenceHolder(() -> workingTicks, v -> workingTicks = v),
-                new FunctionalIntReferenceHolder(() -> animTime, v -> animTime = v),
-                new FunctionalIntReferenceHolder(() -> maxWorkTicks, v -> maxWorkTicks = v));
+    public BooleanSupplier isItemValid(int slot, ItemStack stack) {
+        switch (slot) {
+            case 0:
+                return () -> ItemStackHelper.isFruit(stack);
+            case 1:
+                return () -> stack.getItem() instanceof JuiceBottleItem;
+        }
+
+        return null;
     }
 
     @Override
     public boolean notIdle() {
         ItemStack output = this.inventory.getStackInSlot(1);
-        if(output.isEmpty())
+        if (output.isEmpty())
             return true;
         return output.getCount() < output.getMaxStackSize();
     }
@@ -91,7 +95,7 @@ public class JuicerTile extends RecipeTile<IJuicerRecipe> {
 
     @Override
     public ITextComponent getDisplayName() {
-        return TextComponentUtil.stringTextComponent("Bruh", TextFormatting.GRAY);
+        return TextComponentUtil.translationTextComponent("juicer");
     }
 
     @Nullable

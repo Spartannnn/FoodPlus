@@ -2,22 +2,30 @@ package me.spartann.foodplus.client.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import me.spartann.foodplus.FoodPlusMod;
-import me.spartann.foodplus.common.container.JuicerContainer;
-import me.spartann.foodplus.common.tile.JuicerTile;
+import me.spartann.foodplus.common.container.BeerBrewerContainer;
+import me.spartann.foodplus.common.tile.BeerBrewerTile;
 import me.spartann.foodplus.common.tile.RecipeTile;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
-public class JuicerScreen extends ContainerScreen<JuicerContainer> {
+import java.awt.*;
 
-    private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(FoodPlusMod.MOD_ID, "textures/gui/container/juicer.png");
+public class BeerBrewerScreen extends ContainerScreen<BeerBrewerContainer> {
 
-    public JuicerScreen(JuicerContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
+    private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(FoodPlusMod.MOD_ID, "textures/gui/container/beer_brewer.png");
+
+    public BeerBrewerScreen(BeerBrewerContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
         super(screenContainer, inv, titleIn);
         this.xSize = 176;
-        this.ySize = 151;
+        this.ySize = 185;
+    }
+
+    @Override
+    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
+        super.drawGuiContainerForegroundLayer(mouseX, mouseY);
+        this.font.drawString("WorkingTicks: " + container.tile.workingTicks, 5, 5, Color.GRAY.getRGB());
     }
 
     @Override
@@ -29,15 +37,15 @@ public class JuicerScreen extends ContainerScreen<JuicerContainer> {
 
         this.blit(startX, startY, 0, 0, this.xSize, this.ySize);
 
-        final JuicerTile tileEntity = container.tile;
+        final BeerBrewerTile tileEntity = container.tile;
         if (tileEntity.workingTicks > 0) {
             int arrowWidth = getWorkingProgress();
-            this.blit(startX + 70, startY + 21, 176, 14, arrowWidth, 17);
+            this.blit(startX + 76, startY + 38, 176, 14, arrowWidth, 17);
         }
     }
 
     private int getWorkingProgress() {
-        final JuicerTile tileEntity = this.container.tile;
+        final BeerBrewerTile tileEntity = this.container.tile;
         final int workTicks = tileEntity.workingTicks;
         final int maxSmeltTime = tileEntity.maxWorkTicks;
         if (workTicks <= 0 || maxSmeltTime <= 0)

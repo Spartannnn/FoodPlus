@@ -29,8 +29,8 @@ public class CraftingHelper {
     public static <T extends IInventory, R extends IRecipe<T>> Set<IModRecipe<T>> findModRecipesByType(IRecipeType<R> type, World world) {
         Set<IRecipe<?>> recipes = world.getRecipeManager().getRecipes().stream().filter(r -> r.getType() == type).collect(Collectors.toSet());
         Set<IModRecipe<T>> modRecipes = Sets.newHashSet();
-        for(IRecipe<?> rec : recipes) {
-            if(rec instanceof IModRecipe)
+        for (IRecipe<?> rec : recipes) {
+            if (rec instanceof IModRecipe)
                 modRecipes.add((IModRecipe<T>) rec);
         }
         return modRecipes;
@@ -45,19 +45,20 @@ public class CraftingHelper {
     public static Set<ItemStack> getAllRecipeInputs(IRecipeType<?> type, World world) {
         Set<ItemStack> out = new HashSet<>();
         Set<IRecipe<?>> recipes = findRecipesByType(type, world);
-        for(IRecipe<?> recipe : recipes) {
+        for (IRecipe<?> recipe : recipes) {
             NonNullList<Ingredient> inputs = recipe.getIngredients();
             inputs.forEach(i -> {
-                for(ItemStack stack : i.getMatchingStacks()) out.add(stack);});
+                for (ItemStack stack : i.getMatchingStacks()) out.add(stack);
+            });
         }
         return out;
     }
 
     public static RecipeWrapper trimEmptySlots(RecipeWrapper inv) {
         IItemHandlerModifiable out = new ItemStackHandler();
-        for(int i = 0; i < inv.getSizeInventory(); i++) {
+        for (int i = 0; i < inv.getSizeInventory(); i++) {
             ItemStack stack = inv.getStackInSlot(i);
-            if(!stack.isEmpty()) {
+            if (!stack.isEmpty()) {
                 out.insertItem(i, stack, false);
             }
         }
@@ -65,30 +66,5 @@ public class CraftingHelper {
         return new RecipeWrapper(out);
     }
 
-    /*
-        Iterate only through the inputs
-     */
-    public static boolean containsInRecipe(ItemStack stack, IRecipeType<?> type, World world) {
-        Set<IRecipe<?>> recipes = findRecipesByType(type, world);
-        if(recipes.isEmpty()) return false;
-        boolean flag = false;
-
-        for(IRecipe<?> recipe : recipes) {
-            NonNullList<Ingredient> ingredients = recipe.getIngredients();
-            for(Ingredient ingredient : ingredients) {
-                if(ingredient == null) {
-                    continue;
-                }
-                if(ingredient.getMatchingStacks()[0].isItemEqual(stack)) {
-                    flag = true;
-                    break;
-                }
-            }
-            if(flag)
-                break;
-        }
-
-        return flag;
-    }
 
 }

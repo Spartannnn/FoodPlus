@@ -20,5 +20,18 @@ public class MethodsUtil {
         return false;
     }
 
+    public static <T> boolean containsInArray(T value, T... array) {
+        for(T t : array) {
+            if(t instanceof ItemStack) {
+                ItemStack stack = (ItemStack) t;
+                if(stack.isItemEqual((ItemStack) value))
+                    return true;
+            } else {
+                if(t.equals(value))
+                    return true;
+            }
+        }
+        return false;
+    }
 
 }

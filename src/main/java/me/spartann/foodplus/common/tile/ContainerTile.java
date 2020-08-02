@@ -16,18 +16,28 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.function.BooleanSupplier;
 
 public abstract class ContainerTile extends TileEntity implements INamedContainerProvider {
 
     private static final String INVENTORY_TAG = "inventory";
 
     public final ItemStackHandler inventory;
-    protected final LazyOptional<ItemStackHandler> inventoryCapabilityExternal;
     public List<FunctionalIntReferenceHolder> intReferenceHolders;
+
+    protected final LazyOptional<ItemStackHandler> inventoryCapabilityExternal;
 
     public ContainerTile(TileEntityType<?> tileEntityTypeIn, int inventorySlots) {
         super(tileEntityTypeIn);
         this.inventory = new ItemStackHandler(inventorySlots) {
+
+            @Override
+            public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
+                BooleanSupplier supplier = ContainerTile.this.isItemValid(slot, stack);
+                if (supplier == null) return false;
+                return supplier.getAsBoolean();
+            }
+
             @Override
             protected void onContentsChanged(int slot) {
                 super.onContentsChanged(slot);
@@ -57,10 +67,12 @@ public abstract class ContainerTile extends TileEntity implements INamedContaine
 
     public abstract List<FunctionalIntReferenceHolder> getIntReferenceHolder();
 
+    public abstract BooleanSupplier isItemValid(int slot, ItemStack stack);
+
     public NonNullList<ItemStack> getInventoryItems() {
         NonNullList<ItemStack> list = NonNullList.withSize(this.inventory.getSlots(), ItemStack.EMPTY);
-        for(int i = 0; i < this.inventory.getSlots(); i++)
-            list.add(this.inventory.getStackInSlot(i));
+        for (int i = 0; i < this.inventory.getSlots(); i++)
+            list.set(i, this.inventory.getStackInSlot(i));
         return list;
     }
 
