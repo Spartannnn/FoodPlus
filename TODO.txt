@@ -10,6 +10,6 @@ Bier Krug (full) (name: beer)
 
 Blocks
 Juicer:
-    3 Side Textures (can be the same)
-    1 Front Texture
-    2 End Textures (Top and Bottom)
+    3 Side Textures (can be the same)   (name: juicer_side)
+    1 Front Texture                     (name: juicer_front)
+    2 End Textures (Top and Bottom)     (name: juicer_end)
