@@ -18,7 +18,6 @@ Sushi           (name: sushi) ✓
 Burger          (name: burger)
 XL Burger       (name: burger_xl)
 XXL Burger      (name: burger_xxl)
-Burger Variants:(name: burger_variant_<NAME>) [Replace <Name> with the variant name. Like: chicken or fish burger]
 Sandwich        (name: sandwich)
 Belegte Brote (just more variants, like one with tomato or somehting else) (name: bread_extra)
 Nuggets         (name: nuggets) ✓
