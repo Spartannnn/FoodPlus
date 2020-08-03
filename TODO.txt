@@ -13,13 +13,13 @@ More food items:
 Chips           (name: crisps)
 Pommes          (name: fries)
 Schokolade      (name: chocolate)
-Sushi           (name: sushi)
+Sushi           (name: sushi) ✓
 Burger          (name: burger)
 XL Burger       (name: burger_xl)
 XXL Burger      (name: burger_xxl)
 Sandwich        (name: sandwich)
 Belegte Brote (just more variants, like one with tomato or somehting else) (name: bread_extra)
-Nuggets         (name: nuggets)
+Nuggets         (name: nuggets) ✓
 Salad           (name: salad)
 Salad variants (just more variants) (name: salad_variants_X) [the x is the number, start with 0 and every time you added one more variant increase the number]
 Wurst           (name: sasuage)
