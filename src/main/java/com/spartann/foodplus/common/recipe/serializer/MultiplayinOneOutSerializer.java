@@ -1,7 +1,7 @@
 package com.spartann.foodplus.common.recipe.serializer;
 
 import com.google.gson.JsonObject;
-import com.spartann.foodplus.common.recipe.IThreeInOneOutRecipe;
+import com.spartann.foodplus.common.recipe.IMultiplyInOneOutRecipe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeSerializer;
@@ -15,17 +15,17 @@ import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
 
-public class ThreeInOnOutSerializer<T extends IThreeInOneOutRecipe<RecipeWrapper>> extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<T> {
+public class MultiplayinOneOutSerializer<T extends IMultiplyInOneOutRecipe<RecipeWrapper>> extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<T> {
 
     private IFactory<? extends IRecipe<?>> factory;
 
-    public ThreeInOnOutSerializer(IFactory<T> factory) {
+    public MultiplayinOneOutSerializer(IFactory<T> factory) {
         this.factory = factory;
     }
 
     @Override
     public T read(ResourceLocation recipeId, JsonObject json) {
-        Ingredient[] inputs = new Ingredient[3];
+        Ingredient[] inputs = new Ingredient[JSONUtils.getInt(json, "size")];
         for(int i = 0; i < inputs.length; i++) {
             inputs[i] = Ingredient.deserialize(JSONUtils.getJsonObject(json, "input_" + i));
         }
@@ -36,7 +36,7 @@ public class ThreeInOnOutSerializer<T extends IThreeInOneOutRecipe<RecipeWrapper
     @Nullable
     @Override
     public T read(ResourceLocation recipeId, PacketBuffer buffer) {
-        Ingredient[] inputs = new Ingredient[3];
+        Ingredient[] inputs = new Ingredient[buffer.readInt()];
         for(int i = 0; i < inputs.length; i++)
             inputs[i] = Ingredient.read(buffer);
         ItemStack output = buffer.readItemStack();
@@ -45,6 +45,7 @@ public class ThreeInOnOutSerializer<T extends IThreeInOneOutRecipe<RecipeWrapper
 
     @Override
     public void write(PacketBuffer buffer, T recipe) {
+        buffer.writeInt(recipe.getInputs().length);
         for(Ingredient ingredient : recipe.getInputs()) {
             ingredient.write(buffer);
         }
@@ -52,7 +53,7 @@ public class ThreeInOnOutSerializer<T extends IThreeInOneOutRecipe<RecipeWrapper
         buffer.writeInt(recipe.getWorkingTime());
     }
 
-    public interface IFactory<T extends IThreeInOneOutRecipe<RecipeWrapper>> {
+    public interface IFactory<T extends IMultiplyInOneOutRecipe<RecipeWrapper>> {
         T create(ResourceLocation recipeId, Ingredient[] inputs, ItemStack output, int secondsUntilFinish);
     }
 }

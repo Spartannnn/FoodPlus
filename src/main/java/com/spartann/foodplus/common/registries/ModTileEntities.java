@@ -2,6 +2,7 @@ package com.spartann.foodplus.common.registries;
 
 import com.spartann.foodplus.FoodPlusMod;
 import com.spartann.foodplus.common.tile.TileBeerBrewer;
+import com.spartann.foodplus.common.tile.TileBurgerMaker;
 import com.spartann.foodplus.common.tile.TileJuicer;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
@@ -18,6 +19,7 @@ public class ModTileEntities {
 
     public static final RegistryObject<TileEntityType<TileJuicer>> JUICER_TILE = registerTile("juicer_tile", TileJuicer::new, ModBlocks.JUICER);
     public static final RegistryObject<TileEntityType<TileBeerBrewer>> BEER_BREWER_TILE = registerTile("beer_brewer_tile", TileBeerBrewer::new, ModBlocks.BEER_BREWER);
+    public static final RegistryObject<TileEntityType<TileBurgerMaker>> BURGER_MAKER_TILE = registerTile("burger_maker_tile", TileBurgerMaker::new, ModBlocks.BURGER_MAKER);
 
     private static <T extends TileEntity> RegistryObject<TileEntityType<T>> registerTile(String id, Supplier<T> supplier, RegistryObject<Block> block) {
         return TILE_ENTITIES.register(id, () -> TileEntityType.Builder.create(supplier, block.get()).build(null));

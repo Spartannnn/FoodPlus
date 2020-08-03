@@ -1,5 +1,6 @@
 {
   "type": "foodplus:beer_brewer",
+  "size": 3,
   "input_0": {
     "item": "foodplus:hop"
   },

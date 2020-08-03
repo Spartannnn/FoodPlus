@@ -2,6 +2,7 @@ package com.spartann.foodplus.common.event;
 
 import com.spartann.foodplus.FoodPlusMod;
 import com.spartann.foodplus.client.gui.ScreenBeerBrewer;
+import com.spartann.foodplus.client.gui.ScreenBurgerMaker;
 import com.spartann.foodplus.client.gui.ScreenJuicer;
 import com.spartann.foodplus.common.items.juice.JuiceBottleColor;
 import com.spartann.foodplus.common.registries.ModBlocks;
@@ -26,6 +27,7 @@ public class ClientEventBusSubscriber {
 
         ScreenManager.registerFactory(ModContainers.JUICER_CONTAINER.get(), ScreenJuicer::new);
         ScreenManager.registerFactory(ModContainers.BEER_BREWER.get(), ScreenBeerBrewer::new);
+        ScreenManager.registerFactory(ModContainers.BURGER_MAKER.get(), ScreenBurgerMaker::new);
 
     }
 

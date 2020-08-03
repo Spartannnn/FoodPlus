@@ -1,7 +1,6 @@
 package com.spartann.foodplus.common.tile;
 
 import com.google.common.collect.Lists;
-import com.spartann.foodplus.common.blocks.BlockJuicer;
 import com.spartann.foodplus.common.recipe.IModRecipe;
 import com.spartann.foodplus.common.util.FunctionalIntReferenceHolder;
 import com.spartann.foodplus.common.util.MethodsUtil;
@@ -61,6 +60,7 @@ public abstract class TileRecipe<R extends IModRecipe<RecipeWrapper>> extends Ti
 
     /**
      * Overwrite if you have to add more data to sync
+     *
      * @return a list of {@link FunctionalIntReferenceHolder}
      */
     @Override
@@ -109,7 +109,7 @@ public abstract class TileRecipe<R extends IModRecipe<RecipeWrapper>> extends Ti
                 }
             }
 
-            if(flag1 != this.isWorking()) {
+            if (flag1 != this.isWorking()) {
                 flag = true;
                 this.changeBlockState();
             }
@@ -147,5 +147,6 @@ public abstract class TileRecipe<R extends IModRecipe<RecipeWrapper>> extends Ti
     protected boolean isWorking() {
         return this.workingTicks > 0;
     }
+
 
 }

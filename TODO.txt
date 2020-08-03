@@ -9,7 +9,6 @@ Hopfen           (name: hop)
 Hopfen Seeds     (name: hop seed)	✓
 Mjolnir          (name: mjolnir) (just google "Mjolnir" :D)	✓
 Messer           (name: knife)	✓
-Zucker:          (name: sugar)
 
 More food items:
 Chips           (name: crisps)

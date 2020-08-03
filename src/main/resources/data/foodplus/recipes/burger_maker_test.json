@@ -1,0 +1,20 @@
+{
+  "type": "foodplus:burger_maker",
+  "size": 4,
+  "input_0": {
+    "item": "minecraft:redstone"
+  },
+  "input_1": {
+    "item": "minecraft:cobblestone"
+  },
+  "input_2": {
+    "item": "minecraft:stone"
+  },
+  "input_3": {
+    "item": "minecraft:dirt"
+  },
+  "output": {
+    "item": "minecraft:apple"
+  },
+  "secondsUntilFinish": 10
+}
