@@ -28,6 +28,12 @@ public class ModItems {
     public static final RegistryObject<Item> BEER = register("beer", () -> new ItemBeer(new Item.Properties().group(FoodPlusGroup.INSTANCE).food(FoodList.BEER).maxStackSize(16)));
     public static final RegistryObject<Item> NUGGETS = registerFood("nuggets", FoodList.NUGGETS);
     public static final RegistryObject<Item> SUSHI = registerFood("sushi", FoodList.SUSHI);
+    public static final RegistryObject<Item> FRIES = registerFood("fries", FoodList.FRIES);
+    public static final RegistryObject<Item> CHOCOLATE = registerFood("chocolate", FoodList.CHOCOLATE);
+    public static final RegistryObject<Item> SANDWICH = registerFood("sandwich", FoodList.SANDWICH);
+    public static final RegistryObject<Item> CHEESE = registerFood("cheese", FoodList.CHEESE);
+    public static final RegistryObject<Item> SALAMI = registerFood("salami", FoodList.SALAMI);
+    public static final RegistryObject<Item> HAM = registerFood("ham", FoodList.HAM);
 
     //FRUITS:
     public static final RegistryObject<Item> PEAR_FRUIT = registerFruit("pear_fruit");
