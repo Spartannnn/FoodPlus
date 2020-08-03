@@ -12,13 +12,14 @@ Messer           (name: knife)	✓
 
 More food items:
 Chips           (name: crisps)
-Pommes          (name: fries)
-Schokolade      (name: chocolate)
+Pommes          (name: fries) ✓
+Schokolade      (name: chocolate) ✓
 Sushi           (name: sushi) ✓
 Burger          (name: burger)
 XL Burger       (name: burger_xl)
 XXL Burger      (name: burger_xxl)
-Sandwich        (name: sandwich)
+Burger Variants:(name: burger_variant_<NAME>) (Just replace <NAME> with the variant name, like fish or chicken). [I created a own crafting system for the burgers. With 4 Input Items]
+Sandwich        (name: sandwich) ✓
 Belegte Brote (just more variants, like one with tomato or somehting else) (name: bread_extra)
 Nuggets         (name: nuggets) ✓
 Salad           (name: salad)
@@ -28,9 +29,9 @@ Wurst           (name: sasuage)
 Food Utilities: [These items are no food, but an intermediate step]
 Geschnittene Kartoffel  (name: cuttet_potato) [Like the raw pommes]
 Geschnittenes Hühnchen  (name: cuttet_chicken)
-Schinken        (name: ham)
-Salami          (name: salami)
-Käse            (name: cheese)
+Schinken        (name: ham) ✓
+Salami          (name: salami) ✓
+Käse            (name: cheese) ✓
 
 
 BLOCKS:
