@@ -20,12 +20,12 @@ public class ContainerBurgerMaker extends FoodPlusCraftingContainer<IShapedBurge
     public ContainerBurgerMaker(int id, PlayerInventory playerInventory, TileBurgerMaker tileBurgerMaker) {
         super(ModContainers.BURGER_MAKER.get(), id, playerInventory, tileBurgerMaker, 1);
 
-        this.addSlot(new SlotCraftingResult(resultHandler, this.player, this, 0, 121, 29));
+        this.addSlot(new SlotCraftingResult(resultHandler, this.player, this, 0, 121, 28));
 
-        this.addSlot(new SlotItemHandler(tile.inventory, 0, 11, 12));
-        this.addSlot(new SlotItemHandler(tile.inventory, 1, 39, 12));
-        this.addSlot(new SlotItemHandler(tile.inventory, 2, 11, 43));
-        this.addSlot(new SlotItemHandler(tile.inventory, 3, 39, 43));
+        this.addSlot(new SlotItemHandler(tile.inventory, 0, 23, 19));
+        this.addSlot(new SlotItemHandler(tile.inventory, 1, 41, 19));
+        this.addSlot(new SlotItemHandler(tile.inventory, 2, 23, 37));
+        this.addSlot(new SlotItemHandler(tile.inventory, 3, 41, 37));
 
         this.playerInventory(8, 76);
         this.playerHotbar(8, 134);

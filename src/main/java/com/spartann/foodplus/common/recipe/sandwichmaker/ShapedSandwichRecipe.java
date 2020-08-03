@@ -1,4 +1,4 @@
-package com.spartann.foodplus.common.recipe.burgermaker;
+package com.spartann.foodplus.common.recipe.sandwichmaker;
 
 import com.spartann.foodplus.common.inventory.ModCraftingInventory;
 import com.spartann.foodplus.common.registries.ModRecipeTypes;
@@ -12,12 +12,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 
-public class ShapedBurgerRecipe extends AbstractBurgerRecipe {
+public class ShapedSandwichRecipe extends AbstractSandwichRecipe {
 
     private final int height;
     private final int width;
 
-    public ShapedBurgerRecipe(ShapedRecipe shaped) {
+    public ShapedSandwichRecipe(ShapedRecipe shaped) {
         super(shaped);
         this.height = shaped.getHeight();
         this.width = shaped.getWidth();
@@ -92,6 +92,6 @@ public class ShapedBurgerRecipe extends AbstractBurgerRecipe {
     }
 
     public ShapedRecipe convertShaped() {
-        return new ShapedRecipe(recipeId, "", 2, 2, ingredients, output);
+        return new ShapedRecipe(recipeId, "", this.width, this.height, ingredients, output);
     }
 }

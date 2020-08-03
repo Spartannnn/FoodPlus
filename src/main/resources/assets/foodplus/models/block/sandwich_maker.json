@@ -1,0 +1,11 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "up": "foodplus:blocks/sandwich_maker_top",
+    "north": "foodplus:blocks/sandwich_maker_front",
+    "west": "foodplus:blocks/sandwich_maker_side_left",
+    "east": "foodplus:blocks/sandwich_maker_side_right",
+    "south": "foodplus:blocks/sandwich_maker_back",
+    "down": "foodplus:blocks/sandwich_maker_bottom"
+  }
+}

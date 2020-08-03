@@ -2,10 +2,7 @@ package com.spartann.foodplus.common.registries;
 
 import com.google.common.collect.Sets;
 import com.spartann.foodplus.FoodPlusMod;
-import com.spartann.foodplus.common.blocks.BlockBeerBewer;
-import com.spartann.foodplus.common.blocks.BlockBurgerMaker;
-import com.spartann.foodplus.common.blocks.BlockJuicer;
-import com.spartann.foodplus.common.blocks.BlockSaltOre;
+import com.spartann.foodplus.common.blocks.*;
 import com.spartann.foodplus.common.blocks.crops.BlockHop;
 import com.spartann.foodplus.common.blocks.trees.BlockFoodPlusLeaves;
 import com.spartann.foodplus.common.blocks.trees.BlockFoodPlusLog;
@@ -54,6 +51,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> JUICER = register("juicer", () -> new BlockJuicer(Block.Properties.from(Blocks.FURNACE)));
     public static final RegistryObject<Block> BEER_BREWER = register("beer_brewer", () -> new BlockBeerBewer(Block.Properties.from(Blocks.FURNACE)));
     public static final RegistryObject<Block> BURGER_MAKER = register("burger_maker", () -> new BlockBurgerMaker(Block.Properties.from(Blocks.FURNACE)));
+    public static final RegistryObject<Block> SANDWICH_MAKER = register("sandwich_maker", () -> new BlockSandwichMaker(Block.Properties.from(Blocks.FURNACE)));
 
     //Ore Block:
     public static final RegistryObject<Block> SALT_ORE = register("salt_ore", () -> new BlockSaltOre(Block.Properties.from(Blocks.IRON_ORE)));
