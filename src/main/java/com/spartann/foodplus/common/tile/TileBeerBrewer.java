@@ -1,6 +1,7 @@
 package com.spartann.foodplus.common.tile;
 
 import com.spartann.foodplus.common.container.ContainerBeerBrewer;
+import com.spartann.foodplus.common.items.ItemBeer;
 import com.spartann.foodplus.common.recipe.IModRecipe;
 import com.spartann.foodplus.common.recipe.beerbrewer.IBeerBrewerRecipe;
 import com.spartann.foodplus.common.registries.ModRecipeTypes;
@@ -41,6 +42,7 @@ public class TileBeerBrewer extends TileRecipe<IBeerBrewerRecipe> {
     public void craft(@Nullable IBeerBrewerRecipe recipe) {
         if (recipe != null) {
             ItemStack output = recipe.getRecipeOutput();
+            ItemBeer.setFullness(output, true);
             boolean canInsert = this.inventory.insertItem(3, output, false).isEmpty();
             if (!canInsert)
                 this.idle = true;

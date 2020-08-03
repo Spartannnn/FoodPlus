@@ -1,6 +1,7 @@
 package com.spartann.foodplus.common.registries;
 
 import com.spartann.foodplus.FoodPlusMod;
+import com.spartann.foodplus.common.food.FoodList;
 import com.spartann.foodplus.common.group.FoodPlusGroup;
 import com.spartann.foodplus.common.items.*;
 import com.spartann.foodplus.common.items.juice.ItemJuiceBottle;
@@ -9,13 +10,13 @@ import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.Rarity;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 
 public class ModItems {
@@ -24,7 +25,9 @@ public class ModItems {
 
     //FOOD:
     public static final RegistryObject<Item> JUICE = ITEMS.register("juice", () -> new ItemJuiceBottle(new Item.Properties().group(FoodPlusGroup.INSTANCE).maxStackSize(12)));
-    public static final RegistryObject<Item> BEER = registerEffectItem("beer", ItemBaseFood.BEER, new EffectInstance(Effects.NAUSEA, 30, 3));
+    public static final RegistryObject<Item> BEER = register("beer", () -> new ItemBeer(new Item.Properties().group(FoodPlusGroup.INSTANCE).food(FoodList.BEER).maxStackSize(16)));
+    public static final RegistryObject<Item> NUGGETS = registerFood("nuggets", FoodList.NUGGETS);
+    public static final RegistryObject<Item> SUSHI = registerFood("sushi", FoodList.SUSHI);
 
     //FRUITS:
     public static final RegistryObject<Item> PEAR_FRUIT = registerFruit("pear_fruit");
@@ -33,8 +36,8 @@ public class ModItems {
     public static final RegistryObject<Item> BANANA_FRUIT = registerFruit("banana_fruit");
 
     //TOOLS:
-    public static final RegistryObject<Item> HARVEST_TOOL = ITEMS.register("harvest_tool", () -> new ItemHarvesterTool(new Item.Properties().group(FoodPlusGroup.INSTANCE).maxStackSize(1)));
-    public static final RegistryObject<Item> MJOLNIR = ITEMS.register("mjolnir", () -> new ItemMjolnir(new Item.Properties().group(FoodPlusGroup.INSTANCE)));
+    public static final RegistryObject<Item> HARVEST_TOOL = register("harvest_tool", () -> new ItemHarvesterTool(new Item.Properties().group(FoodPlusGroup.INSTANCE).maxStackSize(1)));
+    public static final RegistryObject<Item> MJOLNIR = register("mjolnir", () -> new ItemMjolnir(new Item.Properties().group(FoodPlusGroup.INSTANCE).maxStackSize(1)));
 
     //BLOCK ITEMS
     public static final RegistryObject<Item> HOP_SEED = registerBlockItem("hop_seed", ModBlocks.HOP_CROP);
@@ -44,12 +47,16 @@ public class ModItems {
     public static final RegistryObject<Item> HOP = registerItem("hop");
     public static final RegistryObject<Item> MALT = registerItem("malt");
 
+    private static RegistryObject<Item> register(String name, Supplier<? extends Item> supplier) {
+        return ITEMS.register(name, supplier);
+    }
+
     private static RegistryObject<Item> registerFood(String name, Food food) {
         return ITEMS.register(name, () -> new ItemBaseFood(new Item.Properties().group(FoodPlusGroup.INSTANCE), food));
     }
 
     private static RegistryObject<Item> registerFruit(String name) {
-        return registerFood(name, ItemBaseFood.FRUIT_FOOD);
+        return registerFood(name, FoodList.FRUIT_FOOD);
     }
 
     private static RegistryObject<Item> registerItem(String name, List<ITextComponent> description) {

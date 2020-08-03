@@ -6,7 +6,7 @@
   "block.foodplus.cherry_leaves": "Cherry Leaves",
   "block.foodplus.cherry_log": "Cherry Log",
   "block.foodplus.cherry_sapling": "Cherry Sapling",
-  "block.foodplus.hop_crop": "Hop Seed",
+  "block.foodplus.hop_crop": "Hop",
   "block.foodplus.juicer": "Juicer",
   "block.foodplus.mango_leaves": "Mango Leaves",
   "block.foodplus.mango_log": "Mango Log",
@@ -22,6 +22,14 @@
   "item.foodplus.pear_fruit": "Pear",
   "item.foodplus.salt": "Salt",
   "item.foodplus.mjolnir": "Mjolnir",
+  "item.foodplus.malt": "Malt",
+  "item.foodplus.hop": "Hop",
+  "item.foodplus.beer.full": "Beer Full",
+  "item.foodplus.beer.empty": "Beer Empty",
+  "item.foodplus.hop_seed": "Hop Seed",
+  "item.foodplus.juice.cherry": "Cherry Juice",
+  "item.foodplus.juice.mango": "Mango Juice",
+  "item.foodplus.juice.pear": "Pear Juice",
 
   "foodplus.mjolnir.desc": "Mjolnir. Hammer of Thor"
 

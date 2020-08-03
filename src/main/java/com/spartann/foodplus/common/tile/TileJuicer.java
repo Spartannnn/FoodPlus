@@ -2,6 +2,7 @@ package com.spartann.foodplus.common.tile;
 
 import com.spartann.foodplus.common.blocks.BlockJuicer;
 import com.spartann.foodplus.common.container.ContainerJuicer;
+import com.spartann.foodplus.common.food.FoodList;
 import com.spartann.foodplus.common.items.ItemBaseFood;
 import com.spartann.foodplus.common.items.juice.ItemJuiceBottle;
 import com.spartann.foodplus.common.items.juice.JuiceBottleFlavour;
@@ -36,7 +37,7 @@ public class TileJuicer extends TileRecipe<IJuicerRecipe> {
     @Override
     public boolean canCraft() {
         return !this.inventory.getStackInSlot(0).isEmpty() && this.inventory.getStackInSlot(0).getItem() instanceof ItemBaseFood && this.inventory.getStackInSlot(0).isFood()
-                && this.inventory.getStackInSlot(0).getItem().getFood().equals(ItemBaseFood.FRUIT_FOOD);
+                && this.inventory.getStackInSlot(0).getItem().getFood().equals(FoodList.FRUIT_FOOD);
     }
 
     @Override

@@ -1,6 +1,7 @@
 Needed textures:
 
 Note: the words behind the "name" should be the file names
+If you have ideas, just add it
 
 Items:
 Malz             (name: malt) 	✓
@@ -8,6 +9,7 @@ Hopfen           (name: hop)
 Hopfen Seeds     (name: hop seed)	✓
 Mjolnir          (name: mjolnir) (just google "Mjolnir" :D)	✓
 Messer           (name: knife)	✓
+Zucker:          (name: sugar)
 
 More food items:
 Chips           (name: crisps)
@@ -23,3 +25,10 @@ Nuggets         (name: nuggets) ✓
 Salad           (name: salad)
 Salad variants (just more variants) (name: salad_variants_X) [the x is the number, start with 0 and every time you added one more variant increase the number]
 Wurst           (name: sasuage)
+
+Food Utilities: [These items are no food, but an intermediate step]
+Geschnittene Kartoffel  (name: cuttet_potato) [Like the raw pommes]
+Geschnittenes Hühnchen  (name: cuttet_chicken)
+Schinken        (name: ham)
+Salami          (name: salami)
+Käse            (name: cheese)

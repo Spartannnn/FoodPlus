@@ -1,5 +1,6 @@
 package com.spartann.foodplus.common.items.juice;
 
+import com.spartann.foodplus.common.food.FoodList;
 import com.spartann.foodplus.common.items.ItemBaseFood;
 import com.spartann.foodplus.common.items.ItemFoodPlus;
 import net.minecraft.entity.LivingEntity;
@@ -21,7 +22,7 @@ public class ItemJuiceBottle extends ItemFoodPlus {
     public static final String NBT_TAG_NAME_FULLNESS = "fullness";
 
     public ItemJuiceBottle(Properties properties) {
-        super(properties.food(ItemBaseFood.JUICE), null);
+        super(properties.food(FoodList.JUICE), null);
         this.addPropertyOverride(new ResourceLocation("fullness"), ItemJuiceBottle::getFullnessPropertyOverride);
     }
 

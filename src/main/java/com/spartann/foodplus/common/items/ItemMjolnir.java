@@ -34,8 +34,7 @@ public class ItemMjolnir extends ItemFoodPlus {
     private void performAttack(World world, PlayerEntity player) {
         Vec3d look = player.getLookVec();
         Vec3d eyes = player.getEyePosition(0);
-        BlockRayTraceResult raytrace = world.rayTraceBlocks(new RayTraceContext(eyes, look.add(eyes), RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, player));
-        List<LivingEntity> entities = getEntities(eyes, look, raytrace.subHit, world, player);
+        List<LivingEntity> entities = getEntities(eyes, look, look.distanceTo(eyes), world, player);
         for (LivingEntity entity : entities) {
             entity.attackEntityFrom(DamageSource.causeIndirectMagicDamage(player, null), 15.0f);
         }

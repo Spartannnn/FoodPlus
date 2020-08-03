@@ -1,11 +1,12 @@
 {
-  "item": "builtin/generated",
+  "parent": "builtin/generated",
   "textures": {
-    "layer0": "foodplus:items/beer_full"
+    "layer0": "foodplus:items/beer_empty",
+    "layer1": "foodplus:items/beer_full"
   },
   "overrides": [
-    { "predicate": { "status": 0 }, "model": "foodplus:item/beer_full" },
-    { "predicate": { "status": 1 }, "model": "foodplus:item/beer_empty" }
+    { "predicate": { "foodplus:status": 0 }, "model": "foodplus:item/beer_full" },
+    { "predicate": { "foodplus:status": 1 }, "model": "foodplus:item/beer_empty" }
   ]
 
 }
