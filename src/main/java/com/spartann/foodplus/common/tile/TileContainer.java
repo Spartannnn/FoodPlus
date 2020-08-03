@@ -34,7 +34,7 @@ public abstract class TileContainer extends TileEntity implements INamedContaine
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
                 BooleanSupplier supplier = TileContainer.this.isItemValid(slot, stack);
-                if (supplier == null) return false;
+                if (supplier == null) return super.isItemValid(slot, stack);
                 return supplier.getAsBoolean();
             }
 

@@ -1,7 +1,7 @@
 package com.spartann.foodplus.client.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.spartann.foodplus.common.container.ContainerFoodPlus;
+import com.spartann.foodplus.common.container.FoodPlusContainer;
 import com.spartann.foodplus.common.tile.TileContainer;
 import com.spartann.foodplus.common.tile.TileRecipe;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
@@ -9,7 +9,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
-public abstract class FoodPlusScreen<T extends TileContainer, C extends ContainerFoodPlus<T>> extends ContainerScreen<C> {
+public abstract class FoodPlusScreen<T extends TileContainer, C extends FoodPlusContainer<T>> extends ContainerScreen<C> {
 
     private final ResourceLocation background;
     private final T tile;

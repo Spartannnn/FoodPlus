@@ -1,0 +1,24 @@
+{
+  "type": "foodplus:burger_maker",
+  "pattern": [
+    "AB",
+    "CD"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:apple"
+    },
+    "B": {
+      "item": "minecraft:dirt"
+    },
+    "C": {
+      "item": "minecraft:stone"
+    },
+    "D": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "result": {
+    "item": "minecraft:diamond"
+  }
+}

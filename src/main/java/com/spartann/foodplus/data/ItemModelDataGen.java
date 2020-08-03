@@ -45,4 +45,8 @@ public class ItemModelDataGen extends ItemModelProvider {
     }
 
 
+    @Override
+    public String getName() {
+        return "Item Model data Gen";
+    }
 }

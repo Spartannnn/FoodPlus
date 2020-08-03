@@ -31,4 +31,5 @@ public class BlockSaltOre extends Block implements ILootTableMultiDropsData {
     public List<ILootCondition.IBuilder> lootConditions() {
         return Lists.newArrayList(SurvivesExplosion.builder());
     }
+
 }

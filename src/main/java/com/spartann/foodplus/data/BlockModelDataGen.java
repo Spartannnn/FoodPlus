@@ -62,4 +62,9 @@ public class BlockModelDataGen extends BlockModelProvider {
     private ResourceLocation getTexture(String name) {
         return new ResourceLocation(FoodPlusMod.MOD_ID, "blocks/" + name);
     }
+
+    @Override
+    public String getName() {
+        return "Block Model Data Gen";
+    }
 }

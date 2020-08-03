@@ -7,7 +7,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class ContainerJuicer extends ContainerFoodPlus<TileJuicer> {
+public class ContainerJuicer extends FoodPlusContainer<TileJuicer> {
 
     public ContainerJuicer(int id, PlayerInventory playerInventory, PacketBuffer data) {
         this(id, playerInventory, ContainerHelper.getTileEntity(TileJuicer.class, playerInventory, data));

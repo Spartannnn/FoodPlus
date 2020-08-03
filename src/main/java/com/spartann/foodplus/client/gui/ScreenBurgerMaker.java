@@ -17,6 +17,6 @@ public class ScreenBurgerMaker extends FoodPlusScreen<TileBurgerMaker, Container
 
     @Override
     public void backgroundRendering(float partialTicks, int mouseX, int mouseY) {
-        this.blit(this.guiLeft + 77, this.guiTop + 29, 176, 14, this.getWorkingProgress(), 17);
+
     }
 }

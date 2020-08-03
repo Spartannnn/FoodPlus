@@ -13,13 +13,13 @@ import net.minecraft.util.IWorldPosCallable;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public abstract class ContainerFoodPlus<TILE extends TileContainer> extends Container {
+public abstract class FoodPlusContainer<TILE extends TileContainer> extends Container {
 
     public final TILE tile;
     protected IWorldPosCallable canInteract;
     protected PlayerInventory playerInventory;
 
-    public ContainerFoodPlus(@Nullable ContainerType<?> type, int id, PlayerInventory playerInventory, TILE tile) {
+    public FoodPlusContainer(@Nullable ContainerType<?> type, int id, PlayerInventory playerInventory, TILE tile) {
         super(type, id);
         this.tile = tile;
         this.playerInventory = playerInventory;
