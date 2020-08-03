@@ -32,3 +32,14 @@ Geschnittenes Hühnchen  (name: cuttet_chicken)
 Schinken        (name: ham)
 Salami          (name: salami)
 Käse            (name: cheese)
+
+
+BLOCKS:
+Buger maker:
+    1 Top Texture   (name: burger_maker_top)
+    The burger maker is a table, with the default texture from a oak log. And only the texture of the top from the table is customized. So, just make these one texture
+
+Sandwich maker:
+    3 Side Textures                 (name: sandwich_maker_side)
+    1 Front Texture                 (name: sandwich_maker_front)
+    2 End Textures (One and Top)    (name: sandwich_maker_end)
