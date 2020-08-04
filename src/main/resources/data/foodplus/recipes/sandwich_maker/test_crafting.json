@@ -1,5 +1,5 @@
 {
-  "type": "foodplus:burger_maker",
+  "type": "foodplus:sandwich_maker",
   "pattern": [
     "AB",
     "CD"

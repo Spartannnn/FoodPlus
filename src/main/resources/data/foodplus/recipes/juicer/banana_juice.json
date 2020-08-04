@@ -1,0 +1,10 @@
+{
+  "type": "foodplus:juicer",
+  "input": {
+    "item": "foodplus:banana_fruit"
+  },
+  "output": {
+    "item": "foodplus:juice"
+  },
+  "secondsUntilFinish": 2
+}

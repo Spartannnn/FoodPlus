@@ -1,5 +1,6 @@
 package com.spartann.foodplus.common.tile;
 
+import com.spartann.foodplus.common.container.ContainerSandwichMaker;
 import com.spartann.foodplus.common.registries.ModTileEntities;
 import com.spartann.foodplus.common.util.FunctionalIntReferenceHolder;
 import com.spartann.foodplus.common.util.TextComponentUtil;
@@ -48,6 +49,6 @@ public class TileSandwichMaker extends TileContainer{
     @Nullable
     @Override
     public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) {
-        return null;
+        return new ContainerSandwichMaker(p_createMenu_1_, p_createMenu_2_, this);
     }
 }

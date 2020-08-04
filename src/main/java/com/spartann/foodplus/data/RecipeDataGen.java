@@ -18,6 +18,7 @@ public class RecipeDataGen extends RecipeProvider {
     @Override
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
         this.registerStandardRecipes(consumer);
+        this.registerCookingRecipes(consumer);
     }
 
     private void registerStandardRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -27,6 +28,15 @@ public class RecipeDataGen extends RecipeProvider {
                 .patternLine(" SI")
                 .patternLine("S  ")
                 .addCriterion("has_item", hasItem(itemPredicate(Items.STICK), itemPredicate(Items.IRON_INGOT), itemPredicate(Items.STICK))).build(consumer);
+        ShapedRecipeBuilder.shapedRecipe(ModItems.CHOCOLATE.get())
+                .key('C', Items.COCOA_BEANS).key('M', Items.MILK_BUCKET).key('S', Items.SUGAR)
+                .patternLine("CCC")
+                .patternLine("SMS")
+                .patternLine("CCC")
+                .addCriterion("has_item", hasItem(itemPredicate(Items.COCOA_BEANS), itemPredicate(Items.MILK_BUCKET), itemPredicate(Items.SUGAR))).build(consumer);
+    }
+
+    private void registerCookingRecipes(Consumer<IFinishedRecipe> consumer) {
         CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(Items.WHEAT), ModItems.MALT.get(), 2.5F, 5)
                 .addCriterion("has_item", hasItem(itemPredicate(Items.WHEAT))).build(consumer);
     }

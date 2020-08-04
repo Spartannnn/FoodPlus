@@ -11,7 +11,8 @@ public enum JuiceBottleFlavour implements IStringSerializable {
 
     PEAR(0, "pear", Color.GREEN),
     CHERRY(1, "cherry", Color.RED),
-    MANGO(2, "mango", new Color(255, 205, 72));
+    MANGO(2, "mango", new Color(255, 205, 72)),
+    BANANA(3, "banana", new Color(244, 252, 3));
 
     @Override
     public String toString()

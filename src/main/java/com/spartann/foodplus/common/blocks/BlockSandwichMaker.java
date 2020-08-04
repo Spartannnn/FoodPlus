@@ -5,7 +5,6 @@ import com.spartann.foodplus.common.tile.TileSandwichMaker;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
-import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.tileentity.TileEntity;
@@ -22,9 +21,9 @@ public class BlockSandwichMaker extends BlockContainer<TileSandwichMaker> {
         this.setDefaultState(this.getStateContainer().getBaseState().with(FACING, Direction.NORTH));
     }
 
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
+    /*public BlockState getStateForPlacement(BlockItemUseContext context) {
         return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
-    }
+    }*/
 
     public BlockState rotate(BlockState state, Rotation rot) {
         return state.with(FACING, rot.rotate(state.get(FACING)));

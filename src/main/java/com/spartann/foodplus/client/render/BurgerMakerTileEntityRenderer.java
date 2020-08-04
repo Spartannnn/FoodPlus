@@ -31,10 +31,10 @@ public class BurgerMakerTileEntityRenderer extends TileEntityRenderer<TileBurger
                 continue;
 
             Direction direction = BlockBurgerMaker.getDirection(tileEntityIn.getBlockState());
-            Quaternion quaternion = new Quaternion(45, 0, direction == Direction.NORTH || direction == Direction.SOUTH ? 0 : 90, true);
+            Quaternion quaternion = new Quaternion(90, 0, direction == Direction.NORTH || direction == Direction.SOUTH ? 0 : 90, true);
 
             matrixStackIn.push();
-            matrixStackIn.translate(0.2, 1.0, 0.2);
+            matrixStackIn.translate(0.5, 1.0, 0.5);
             matrixStackIn.scale(0.6F, 0.6F, 0.6F);
             matrixStackIn.rotate(quaternion);
 

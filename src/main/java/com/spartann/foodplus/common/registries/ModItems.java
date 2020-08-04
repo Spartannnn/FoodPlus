@@ -34,6 +34,7 @@ public class ModItems {
     public static final RegistryObject<Item> CHEESE = registerFood("cheese", FoodList.CHEESE);
     public static final RegistryObject<Item> SALAMI = registerFood("salami", FoodList.SALAMI);
     public static final RegistryObject<Item> HAM = registerFood("ham", FoodList.HAM);
+    public static final RegistryObject<Item> SASUAGE = registerFood("sasuage", FoodList.SASUAGE);
 
     //FRUITS:
     public static final RegistryObject<Item> PEAR_FRUIT = registerFruit("pear_fruit");
@@ -52,6 +53,7 @@ public class ModItems {
     public static final RegistryObject<Item> SALT = registerItem("salt");
     public static final RegistryObject<Item> HOP = registerItem("hop");
     public static final RegistryObject<Item> MALT = registerItem("malt");
+    public static final RegistryObject<Item> KNIFE = registerItem("knife");
 
     private static RegistryObject<Item> register(String name, Supplier<? extends Item> supplier) {
         return ITEMS.register(name, supplier);

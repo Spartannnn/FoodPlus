@@ -15,6 +15,8 @@
   "block.foodplus.pear_log": "Pear Log",
   "block.foodplus.pear_sapling": "Pear Sapling",
   "block.foodplus.salt_ore": "Salt Ore",
+  "block.foodplus.sandwich_maker": "Sandwich Maker",
+  "block.foodplus.burger_maker": "Burger Maker",
 
   "item.foodplus.cherry_fruit": "Cherry",
   "item.foodplus.harvest_tool": "Harvesting Tool",
@@ -30,7 +32,18 @@
   "item.foodplus.juice.cherry": "Cherry Juice",
   "item.foodplus.juice.mango": "Mango Juice",
   "item.foodplus.juice.pear": "Pear Juice",
+  "item.foodplus.nuggets": "Nuggets",
+  "item.foodplus.sushi": "Sushi",
+  "item.foodplus.fries": "Fries",
+  "item.foodplus.chocolate": "Chocolate",
+  "item.foodplus.sandwich": "Sandwich",
+  "item.foodplus.cheese": "Cheese",
+  "item.foodplus.salami": "Salami",
+  "item.foodplus.ham": "Ham",
+  "item.foodplus.knife": "Knife",
 
-  "foodplus.mjolnir.desc": "Mjolnir. Hammer of Thor"
+  "foodplus.mjolnir.desc": "Mjolnir. Hammer of Thor",
+
+  "itemGroup.foodplus_tab": "FoodPlus"
 
 }

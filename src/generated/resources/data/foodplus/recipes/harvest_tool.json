@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "XFS",
-    "XSI",
-    "SXX"
+    " FS",
+    " SI",
+    "S  "
   ],
   "key": {
     "F": {
@@ -12,7 +12,6 @@
     "I": {
       "item": "minecraft:iron_ingot"
     },
-    "X": [],
     "S": {
       "item": "minecraft:stick"
     }
