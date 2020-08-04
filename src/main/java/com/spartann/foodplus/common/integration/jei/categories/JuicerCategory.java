@@ -8,6 +8,7 @@ import com.spartann.foodplus.common.items.juice.JuiceBottleFullness;
 import com.spartann.foodplus.common.recipe.juicer.IJuicerRecipe;
 import com.spartann.foodplus.common.registries.ModBlocks;
 import com.spartann.foodplus.common.registries.ModItems;
+import com.spartann.foodplus.common.util.MethodsUtil;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -19,7 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class JuicerCategory implements IRecipeCategory<IJuicerRecipe> {
@@ -61,25 +61,35 @@ public class JuicerCategory implements IRecipeCategory<IJuicerRecipe> {
 
     @Override
     public void setRecipe(IRecipeLayout iRecipeLayout, IJuicerRecipe iJuicerRecipe, IIngredients iIngredients) {
+        List<List<ItemStack>> inList = iIngredients.getInputs(VanillaTypes.ITEM);
+        List<List<ItemStack>> outList = iIngredients.getOutputs(VanillaTypes.ITEM);
+
         IGuiItemStackGroup itemStackGroup = iRecipeLayout.getItemStacks();
         itemStackGroup.init(0, true, 122, 19);
-        itemStackGroup.set(0, iIngredients.getOutputs(VanillaTypes.ITEM).get(0));
-
+        itemStackGroup.set(0, outList.get(0));
         itemStackGroup.init(1, true, 25, 19);
-        itemStackGroup.set(1, iIngredients.getInputs(VanillaTypes.ITEM).get(0));
+        itemStackGroup.set(1, inList.get(0));
     }
 
     @Override
     public void setIngredients(IJuicerRecipe iJuicerRecipe, IIngredients iIngredients) {
-        iIngredients.setInputs(VanillaTypes.ITEM, Arrays.asList(iJuicerRecipe.getIngredients().get(0).getMatchingStacks()));
+        List<List<ItemStack>> inList = Lists.newArrayList();
+        inList.add(MethodsUtil.convertItemsIntoStacks(ModItems.getFruits()));
+        iIngredients.setInputLists(VanillaTypes.ITEM, inList);
+        List<List<ItemStack>> outList = Lists.newArrayList();
         List<ItemStack> outputs = Lists.newArrayList();
         for (Item item : ModItems.getFruits()) {
-            iIngredients.setInput(VanillaTypes.ITEM, item.getDefaultInstance());
             ItemStack output = new ItemStack(ModItems.JUICE.get(), 1);
-            ItemJuiceBottle.setFlavour(output, JuiceBottleFlavour.byName(item.getRegistryName().getPath().replace("_fruit", "")));
+            String name = item.getRegistryName().getPath();
+            if(name.contains("_fruit"))
+                name = name.replace("_fruit", "");
+            if(name.contains("melon"))
+                name = "melon";
+            ItemJuiceBottle.setFlavour(output, JuiceBottleFlavour.byName(name));
             ItemJuiceBottle.setFullness(output, JuiceBottleFullness.FULL);
             outputs.add(output);
         }
-        iIngredients.setOutputs(VanillaTypes.ITEM, outputs);
+        outList.add(outputs);
+        iIngredients.setOutputLists(VanillaTypes.ITEM, outList);
     }
 }

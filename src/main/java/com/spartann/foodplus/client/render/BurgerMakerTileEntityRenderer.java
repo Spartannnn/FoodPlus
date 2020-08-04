@@ -35,7 +35,7 @@ public class BurgerMakerTileEntityRenderer extends TileEntityRenderer<TileBurger
 
             matrixStackIn.push();
             matrixStackIn.translate(0.5, 1.0, 0.5);
-            matrixStackIn.scale(0.6F, 0.6F, 0.6F);
+            matrixStackIn.scale(0.4F, 0.4F, 0.4F);
             matrixStackIn.rotate(quaternion);
 
             ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();

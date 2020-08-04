@@ -1,6 +1,11 @@
 package com.spartann.foodplus.common.util;
 
+import com.google.common.collect.Lists;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import org.apache.commons.lang3.Validate;
+
+import java.util.List;
 
 public class MethodsUtil {
 
@@ -32,6 +37,14 @@ public class MethodsUtil {
             }
         }
         return false;
+    }
+
+    public static List<ItemStack> convertItemsIntoStacks(List<Item> items) {
+        Validate.notNull(items, "Items are null");
+        List<ItemStack> res = Lists.newArrayList();
+        for(Item item : items)
+            res.add(item.getDefaultInstance());
+        return res;
     }
 
 }
