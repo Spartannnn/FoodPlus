@@ -3,6 +3,9 @@ Needed textures:
 Note: the words behind the "name" should be the file names
 If you have ideas, just add it
 
+[CROP] = If this is behind some food, then you have to make 8 textures for the crop (Pflanze :D). (8 textures because the different states from the plant)
+         !!!NOTE!!!: Upload the crop textures under textures/blocks/crops (In the crops folder)
+
 Items:
 Malz             (name: malt) 	✓
 Hopfen           (name: hop)    	
@@ -22,9 +25,13 @@ Burger Variants:(name: burger_variant_<NAME>) (Just replace <NAME> with the vari
 Sandwich        (name: sandwich) ✓
 Belegte Brote (just more variants, like one with tomato or somehting else) (name: bread_extra)
 Nuggets         (name: nuggets) ✓
-Salad           (name: salad)
+Salad           (name: salad) [CROP] (name: salad_crop_stage_X) Replace X with the stage number. Start with 0 and end with 7
 Salad variants (just more variants) (name: salad_variants_X) [the x is the number, start with 0 and every time you added one more variant increase the number]
 Wurst           (name: sasuage)
+Fleischsuppe    (name: meat_soup) (Soup with all meat types (pig, cow, sheep, rabbit))
+Fischsuppe      (name: fish_soup) (Soup with all fish types)
+Blumenkohl      (name: cauliflower) [CROP] (name: cauliflower_crop_stage_X) Replace X with the stage number. Start with 0 and end with 7
+
 
 Food Utilities: [These items are no food, but an intermediate step]
 Geschnittene Kartoffel  (name: cuttet_potato) [Like the raw pommes]

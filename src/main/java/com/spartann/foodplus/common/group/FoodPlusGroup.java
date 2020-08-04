@@ -14,6 +14,6 @@ public class FoodPlusGroup extends ItemGroup {
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(ModItems.BEER.get());
+        return new ItemStack(ModItems.HAM.get());
     }
 }

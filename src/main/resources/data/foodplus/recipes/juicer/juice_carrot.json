@@ -1,0 +1,10 @@
+{
+  "type": "foodplus:juicer",
+  "input": {
+    "item": "minecraft:carrot"
+  },
+  "output": {
+    "item": "foodplus:juice"
+  },
+  "secondsUntilFinish": 2
+}

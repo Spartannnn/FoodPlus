@@ -1,6 +1,6 @@
 {
   "parent": "block/stem_growth0",
   "textures": {
-    "stem": "foodplus:blocks/hop_stem_stage0"
+    "stem": "foodplus:blocks/crops/hop_stem_stage0"
   }
 }
