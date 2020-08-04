@@ -31,6 +31,9 @@ Wurst           (name: sasuage)
 Fleischsuppe    (name: meat_soup) (Soup with all meat types (pig, cow, sheep, rabbit))
 Fischsuppe      (name: fish_soup) (Soup with all fish types)
 Blumenkohl      (name: cauliflower) [CROP] (name: cauliflower_crop_stage_X) Replace X with the stage number. Start with 0 and end with 7
+Vodka           (name: vodka)
+Coffee          (name: coffee)
+Coffee bean     (name: coffee_bean)
 
 
 Food Utilities: [These items are no food, but an intermediate step]
