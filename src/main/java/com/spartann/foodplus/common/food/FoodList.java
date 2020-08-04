@@ -16,6 +16,8 @@ public class FoodList {
     public static final Food SALAMI = build(4, 0.5F);
     public static final Food HAM = build(6, 1.0F, true, false, false);
     public static final Food SASUAGE = build(6, 1.0F);
+    public static final Food SASUAGE_ROASTED = build(8, 2.5F);
+    public static final Food CRISPS = build(4, 1.0F);
 
 
     private static Food build(int hunger, float saturation, boolean meat, boolean alwaysEdible, boolean fastEat) {

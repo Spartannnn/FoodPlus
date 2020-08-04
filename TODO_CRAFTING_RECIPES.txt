@@ -8,13 +8,13 @@ Malz: Burn wheat in the furnace ✓
 Hopfen: Destroy the hop crop ✓
 Hopfem Seeds: Destroy the hop crop ✓
 Mjolnir: Beer + ? + ?
-Messer: "  I" [S=Stick, I=Iron]
+Messer: "  I" [S=Stick, I=Iron] ✓
         " S "
         "S  "
 
 
-Chips: Burn potatoes in the furnace
-Pommes: Burn the cuttet potatos
+Chips: Burn potatoes in the furnace ✓
+Pommes: Burn the cuttet potatos ✓
 Schokolade: Cocoa bean + Sugar + Milk ✓
 Sushi: ?
 Sandwich: Made in the sandwich maker (Extra Block)

@@ -1,5 +1,6 @@
 package com.spartann.foodplus.common.registries;
 
+import com.google.common.collect.Lists;
 import com.spartann.foodplus.FoodPlusMod;
 import com.spartann.foodplus.common.food.FoodList;
 import com.spartann.foodplus.common.group.FoodPlusGroup;
@@ -8,6 +9,7 @@ import com.spartann.foodplus.common.items.juice.ItemJuiceBottle;
 import net.minecraft.block.Block;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.item.Rarity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.text.ITextComponent;
@@ -35,6 +37,8 @@ public class ModItems {
     public static final RegistryObject<Item> SALAMI = registerFood("salami", FoodList.SALAMI);
     public static final RegistryObject<Item> HAM = registerFood("ham", FoodList.HAM);
     public static final RegistryObject<Item> SASUAGE = registerFood("sasuage", FoodList.SASUAGE);
+    public static final RegistryObject<Item> SASUAGE_ROASTED = registerFood("sasuage_roasted", FoodList.SASUAGE_ROASTED);
+    public static final RegistryObject<Item> CRISPS = registerFood("crisps", FoodList.CRISPS);
 
     //FRUITS:
     public static final RegistryObject<Item> PEAR_FRUIT = registerFruit("pear_fruit");
@@ -54,6 +58,8 @@ public class ModItems {
     public static final RegistryObject<Item> HOP = registerItem("hop");
     public static final RegistryObject<Item> MALT = registerItem("malt");
     public static final RegistryObject<Item> KNIFE = registerItem("knife");
+    public static final RegistryObject<Item> CUTTET_POTATO = registerItem("cuttet_potato");
+    public static final RegistryObject<Item> CUTTET_CHICKEN = registerItem("cuttet_chicken");
 
     private static RegistryObject<Item> register(String name, Supplier<? extends Item> supplier) {
         return ITEMS.register(name, supplier);
@@ -81,6 +87,19 @@ public class ModItems {
 
     private static RegistryObject<Item> registerItem(String name) {
         return registerItem(name, null);
+    }
+
+    public static List<Item> getFruits() {
+        List<Item> fruits = Lists.newArrayList();
+        fruits.add(PEAR_FRUIT.get());
+        fruits.add(CHERRY_FRUIT.get());
+        fruits.add(MANGO_FRUIT.get());
+        fruits.add(BANANA_FRUIT.get());
+        fruits.add(Items.CARROT);
+        fruits.add(Items.MELON_SLICE);
+        fruits.add(Items.POTATO);
+        fruits.add(Items.APPLE);
+        return fruits;
     }
 
 }

@@ -38,8 +38,8 @@ public class BlockJuicer extends BlockContainer<TileJuicer> {
     }
 
     @Override
-    public TileEntity create() {
-        return ModTileEntities.JUICER_TILE.get().create();
+    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+        builder.add(FACING, WORKING);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class BlockJuicer extends BlockContainer<TileJuicer> {
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(FACING, WORKING);
+    public TileEntity create() {
+        return ModTileEntities.JUICER_TILE.get().create();
     }
 }

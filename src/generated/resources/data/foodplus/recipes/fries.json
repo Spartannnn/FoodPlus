@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "foodplus:cuttet_potato"
+  },
+  "result": "foodplus:fries",
+  "experience": 2.5,
+  "cookingtime": 5
+}

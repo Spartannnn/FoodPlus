@@ -17,16 +17,17 @@ public class DropsEvent {
     private static final Random RANDOM = new Random();
 
     public static void onEntityDrop(LivingDropsEvent event) {
-        if(event.getEntityLiving() instanceof PigEntity) {
+        if(event.getEntity() instanceof PigEntity) {
+            System.out.println("DEBUG");
             if(RANDOM.nextFloat() <= 0.25F)
-                ItemStackHelper.dropItems(event.getEntity().getEntityWorld(), event.getEntityLiving().getPosition(), new ItemStack(ModItems.HAM.get(), RANDOM.nextInt(3) + 1));
+                ItemStackHelper.dropItems(event.getEntity().getEntityWorld(), event.getEntity().getPosition(), new ItemStack(ModItems.HAM.get(), RANDOM.nextInt(3) + 1));
             if(RANDOM.nextFloat() <= 0.20F)
-                ItemStackHelper.dropItems(event.getEntity().getEntityWorld(), event.getEntityLiving().getPosition(), new ItemStack(ModItems.SALAMI.get(), RANDOM.nextInt(3) + 1));
-        } else if(event.getEntityLiving() instanceof CowEntity) {
+                ItemStackHelper.dropItems(event.getEntity().getEntityWorld(), event.getEntity().getPosition(), new ItemStack(ModItems.SALAMI.get(), RANDOM.nextInt(3) + 1));
+        } else if(event.getEntity() instanceof CowEntity) {
             if(RANDOM.nextFloat() <= 0.30)
-                ItemStackHelper.dropItems(event.getEntity().getEntityWorld(), event.getEntityLiving().getPosition(), new ItemStack(ModItems.SASUAGE.get(), RANDOM.nextInt(3) + 1));
+                ItemStackHelper.dropItems(event.getEntity().getEntityWorld(), event.getEntity().getPosition(), new ItemStack(ModItems.SASUAGE.get(), RANDOM.nextInt(3) + 1));
             if(RANDOM.nextFloat() <= 0.10)
-                ItemStackHelper.dropItems(event.getEntity().getEntityWorld(), event.getEntityLiving().getPosition(), new ItemStack(ModItems.SALAMI.get(), RANDOM.nextInt(3) + 1));
+                ItemStackHelper.dropItems(event.getEntity().getEntityWorld(), event.getEntity().getPosition(), new ItemStack(ModItems.SALAMI.get(), RANDOM.nextInt(3) + 1));
         }
     }
 

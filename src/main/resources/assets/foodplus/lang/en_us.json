@@ -32,6 +32,11 @@
   "item.foodplus.juice.cherry": "Cherry Juice",
   "item.foodplus.juice.mango": "Mango Juice",
   "item.foodplus.juice.pear": "Pear Juice",
+  "item.foodplus.juice.apple": "Apple Juice",
+  "item.foodplus.juice.banana": "Banana Juice",
+  "item.foodplus.juice.potato": "Potato Juice",
+  "item.foodplus.juice.melon": "Melon Juice",
+  "item.foodplus.juice.carrot": "Carrot Juice",
   "item.foodplus.nuggets": "Nuggets",
   "item.foodplus.sushi": "Sushi",
   "item.foodplus.fries": "Fries",
@@ -41,6 +46,11 @@
   "item.foodplus.salami": "Salami",
   "item.foodplus.ham": "Ham",
   "item.foodplus.knife": "Knife",
+  "item.foodplus.sasuage": "Sasuage",
+  "item.foodplus.sasuage_roasted": "Sasuage Roasted",
+  "item.foodplus.cuttet_potato": "Cuttet Potato",
+  "item.foodplus.cuttet_chicken": "Cuttet Chicken",
+  "item.foodplus.crisps": "Crisps",
 
   "foodplus.mjolnir.desc": "Mjolnir. Hammer of Thor",
 

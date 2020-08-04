@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "foodplus:sasuage"
+  },
+  "result": "foodplus:sasuage_roasted",
+  "experience": 2.5,
+  "cookingtime": 5
+}

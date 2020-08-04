@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "foodplus:cuttet_potato"
+    },
+    {
+      "item": "foodplus:salt"
+    }
+  ],
+  "result": {
+    "item": "foodplus:crisps"
+  }
+}
