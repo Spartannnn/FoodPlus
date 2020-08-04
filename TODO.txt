@@ -14,8 +14,8 @@ Mjolnir          (name: mjolnir) (just google "Mjolnir" :D)	✓
 Messer           (name: knife)	✓
 
 More food items:
-Chips           (name: crisps)
-Pommes          (name: fries) ✓
+Chips           (name: crisps) (✓)
+Pommes          (name: fries) (✓)
 Schokolade      (name: chocolate) ✓
 Sushi           (name: sushi) ✓
 Burger          (name: burger)
@@ -27,7 +27,8 @@ Belegte Brote (just more variants, like one with tomato or somehting else) (name
 Nuggets         (name: nuggets) ✓
 Salad           (name: salad) [CROP] (name: salad_crop_stage_X) Replace X with the stage number. Start with 0 and end with 7
 Salad variants (just more variants) (name: salad_variants_X) [the x is the number, start with 0 and every time you added one more variant increase the number]
-Wurst           (name: sasuage)
+Wurst           (name: sasuage) ✓
+gebratene Wurst (name:roasted_sausage) ✓
 Fleischsuppe    (name: meat_soup) (Soup with all meat types (pig, cow, sheep, rabbit))
 Fischsuppe      (name: fish_soup) (Soup with all fish types)
 Blumenkohl      (name: cauliflower) [CROP] (name: cauliflower_crop_stage_X) Replace X with the stage number. Start with 0 and end with 7
@@ -37,8 +38,8 @@ Coffee bean     (name: coffee_bean)
 
 
 Food Utilities: [These items are no food, but an intermediate step]
-Geschnittene Kartoffel  (name: cuttet_potato) [Like the raw pommes]
-Geschnittenes Hühnchen  (name: cuttet_chicken)
+Geschnittene Kartoffel  (name: cuttet_potato) [Like the raw pommes] (✓)
+Geschnittenes Hühnchen  (name: cuttet_chicken) ✓
 Schinken        (name: ham) ✓
 Salami          (name: salami) ✓
 Käse            (name: cheese) ✓
