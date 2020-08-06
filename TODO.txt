@@ -35,10 +35,10 @@ Blumenkohl      (name: cauliflower) [CROP] (name: cauliflower_crop_stage_X) Repl
 Karottensuppe   (name: carrot_soup)
 Gemüsesuppe     (name: vegetable_soup)
 Fleisch mit Kartoffel (name: meat_with_potato)
-Lasagne         (name: lasagne)
-Spaghetti       (name: spaghetti)
+Lasagne         (name: lasagne) ✓
+Spaghetti       (name: spaghetti) (✓)
 Trauben         (name: grapes) [CROP] (name: grapes_crop_stage_X)
-Vodka           (name: vodka)
+Vodka           (name: vodka) ✓
 Coffee          (name: coffee)
 Coffee bean     (name: coffee_bean)
 
