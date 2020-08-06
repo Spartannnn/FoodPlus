@@ -7,12 +7,9 @@ import com.spartann.foodplus.common.blocks.crops.BlockHop;
 import com.spartann.foodplus.common.blocks.trees.BlockFoodPlusLeaves;
 import com.spartann.foodplus.common.blocks.trees.BlockFoodPlusLog;
 import com.spartann.foodplus.common.blocks.trees.BlockFoodPlusSapling;
-import com.spartann.foodplus.common.blocks.trees.leaves.BlockBananaLeave;
-import com.spartann.foodplus.common.blocks.trees.leaves.BlockCherryLeave;
-import com.spartann.foodplus.common.blocks.trees.leaves.BlockMangoLeave;
-import com.spartann.foodplus.common.blocks.trees.leaves.BlockPearLeave;
+import com.spartann.foodplus.common.blocks.trees.BlockFruit;
 import com.spartann.foodplus.common.items.FruitTypes;
-import com.spartann.foodplus.common.world.features.FruitTree;
+import com.spartann.foodplus.common.world.features.SaplingFruitTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
@@ -36,16 +33,18 @@ public class ModBlocks {
     public static final RegistryObject<Block> BANANA_LOG = register("banana_log", () -> new BlockFoodPlusLog(MaterialColor.WOOD, Block.Properties.from(Blocks.OAK_LOG)));
 
     //LEAVES (FRUITS)
-    public static final RegistryObject<Block> PEAR_LEAVES = register("pear_leaves", () -> new BlockPearLeave(Block.Properties.from(Blocks.OAK_LEAVES)));
-    public static final RegistryObject<Block> CHERRY_LEAVES = register("cherry_leaves", () -> new BlockCherryLeave(Block.Properties.from(Blocks.OAK_LEAVES)));
-    public static final RegistryObject<Block> MANGO_LEAVES = register("mango_leaves", () -> new BlockMangoLeave(Block.Properties.from(Blocks.OAK_LEAVES)));
-    public static final RegistryObject<Block> BANANA_LEAVES = register("banana_leaves", () -> new BlockBananaLeave(Block.Properties.from(Blocks.OAK_LEAVES)));
+    public static final RegistryObject<Block> PEAR_LEAVES = register("pear_leaves", () -> new BlockFoodPlusLeaves(Block.Properties.from(Blocks.OAK_LEAVES)));
+    public static final RegistryObject<Block> CHERRY_LEAVES = register("cherry_leaves", () -> new BlockFoodPlusLeaves(Block.Properties.from(Blocks.OAK_LEAVES)));
+    public static final RegistryObject<Block> MANGO_LEAVES = register("mango_leaves", () -> new BlockFoodPlusLeaves(Block.Properties.from(Blocks.OAK_LEAVES)));
+    public static final RegistryObject<Block> BANANA_LEAVES = register("banana_leaves", () -> new BlockFoodPlusLeaves(Block.Properties.from(Blocks.OAK_LEAVES)));
 
     //SAPLING
-    public static final RegistryObject<Block> PEAR_SAPLING = register("pear_sapling", () -> new BlockFoodPlusSapling(() -> new FruitTree(FruitTypes.PEAR), Block.Properties.from(Blocks.OAK_SAPLING)));
-    public static final RegistryObject<Block> CHERRY_SAPLING = register("cherry_sapling", () -> new BlockFoodPlusSapling(() -> new FruitTree(FruitTypes.CHERRY), Block.Properties.from(Blocks.OAK_SAPLING)));
-    public static final RegistryObject<Block> MANGO_SAPLING = register("mango_sapling", () -> new BlockFoodPlusSapling(() -> new FruitTree(FruitTypes.MANGO), Block.Properties.from(Blocks.OAK_SAPLING)));
-    public static final RegistryObject<Block> BANANA_SAPLING = register("banana_sapling", () -> new BlockFoodPlusSapling(() -> new FruitTree(FruitTypes.BANANA), Block.Properties.from(Blocks.OAK_SAPLING)));
+    public static final RegistryObject<Block> PEAR_SAPLING = register("pear_sapling", () -> new BlockFoodPlusSapling(() -> new SaplingFruitTree(FruitTypes.PEAR), Block.Properties.from(Blocks.OAK_SAPLING)));
+    public static final RegistryObject<Block> CHERRY_SAPLING = register("cherry_sapling", () -> new BlockFoodPlusSapling(() -> new SaplingFruitTree(FruitTypes.CHERRY), Block.Properties.from(Blocks.OAK_SAPLING)));
+    public static final RegistryObject<Block> MANGO_SAPLING = register("mango_sapling", () -> new BlockFoodPlusSapling(() -> new SaplingFruitTree(FruitTypes.MANGO), Block.Properties.from(Blocks.OAK_SAPLING)));
+    public static final RegistryObject<Block> BANANA_SAPLING = register("banana_sapling", () -> new BlockFoodPlusSapling(() -> new SaplingFruitTree(FruitTypes.BANANA), Block.Properties.from(Blocks.OAK_SAPLING)));
+
+    public static final RegistryObject<Block> FRUIT = register("fruit_block", BlockFruit::new);
 
     //Kitchen Util:
     public static final RegistryObject<Block> JUICER = register("juicer", () -> new BlockJuicer(Block.Properties.from(Blocks.FURNACE)));

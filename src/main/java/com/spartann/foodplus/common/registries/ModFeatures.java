@@ -1,18 +1,17 @@
 package com.spartann.foodplus.common.registries;
 
-import com.spartann.foodplus.FoodPlusMod;
+import com.spartann.foodplus.common.world.features.FruitTreeFeature;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.TreeFeature;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraftforge.event.RegistryEvent;
 
 public class ModFeatures {
 
-    public static final DeferredRegister<Feature<?>> FEATURES = new DeferredRegister<>(ForgeRegistries.FEATURES, FoodPlusMod.MOD_ID);
 
-    public static final RegistryObject<Feature<TreeFeatureConfig>> FRUIT_TREE = FEATURES.register("fruit_tree", () -> new TreeFeature(TreeFeatureConfig::deserializeFoliage));
+    public static final Feature<NoFeatureConfig> FRUIT_TREE = new FruitTreeFeature(NoFeatureConfig::deserialize);
 
+    public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
+        event.getRegistry().register(FRUIT_TREE.setRegistryName("test_tree_fruit"));
+    }
 
 }

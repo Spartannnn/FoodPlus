@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "fruit=pear": { "model": "foodplus:block/fruit_block"},
+    "fruit=cherry": { "model": "foodplus:block/fruit_block2"},
+    "fruit=mango": { "model": "foodplus:block/fruit_block"},
+    "fruit=banana": { "model": "foodplus:block/fruit_block2"}
+  }
+}

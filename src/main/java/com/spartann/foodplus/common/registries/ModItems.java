@@ -6,6 +6,8 @@ import com.spartann.foodplus.common.food.FoodList;
 import com.spartann.foodplus.common.group.FoodPlusGroup;
 import com.spartann.foodplus.common.items.*;
 import com.spartann.foodplus.common.items.juice.ItemJuiceBottle;
+import com.spartann.foodplus.common.items.misc.ItemBanana;
+import com.spartann.foodplus.common.items.misc.ItemVodka;
 import net.minecraft.block.Block;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
@@ -39,12 +41,15 @@ public class ModItems {
     public static final RegistryObject<Item> SASUAGE = registerFood("sasuage", FoodList.SASUAGE);
     public static final RegistryObject<Item> SASUAGE_ROASTED = registerFood("sasuage_roasted", FoodList.SASUAGE_ROASTED);
     public static final RegistryObject<Item> CRISPS = registerFood("crisps", FoodList.CRISPS);
+    public static final RegistryObject<Item> LASAGNE = registerFood("lasagne", FoodList.LASAGNE);
+    public static final RegistryObject<Item> VODKA = register("vodka", () -> new ItemVodka(new Item.Properties().group(FoodPlusGroup.INSTANCE).food(FoodList.VODKA)));
+    public static final RegistryObject<Item> SPAGETHI = registerFood("spagethi", FoodList.SPAGETHI);
 
     //FRUITS:
     public static final RegistryObject<Item> PEAR_FRUIT = registerFruit("pear_fruit");
     public static final RegistryObject<Item> CHERRY_FRUIT = registerFruit("cherry_fruit");
     public static final RegistryObject<Item> MANGO_FRUIT = registerFruit("mango_fruit");
-    public static final RegistryObject<Item> BANANA_FRUIT = registerFruit("banana_fruit");
+    public static final RegistryObject<Item> BANANA_FRUIT = register("banana_fruit", () -> new ItemBanana(new Item.Properties().group(FoodPlusGroup.INSTANCE).food(FoodList.FRUIT_FOOD)));
 
     //TOOLS:
     public static final RegistryObject<Item> HARVEST_TOOL = register("harvest_tool", () -> new ItemHarvesterTool(new Item.Properties().group(FoodPlusGroup.INSTANCE).maxStackSize(1)));

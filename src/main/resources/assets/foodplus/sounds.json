@@ -1,0 +1,9 @@
+{
+  "item_soviet_anthem": {
+    "category": "music",
+    "subtitle": "item_soviet_anthem",
+    "sounds": [
+      { "name": "foodplus:soviet_anthem"}
+    ]
+  }
+}

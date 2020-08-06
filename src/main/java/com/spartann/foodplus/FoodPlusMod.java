@@ -10,6 +10,7 @@ import net.minecraft.block.CropsBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -47,13 +48,15 @@ public class FoodPlusMod {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::doClientStuff);
+        modEventBus.addGenericListener(Feature.class, ModFeatures::registerFeatures);
 
         //Register methods
+        ModSounds.SOUNDS.register(modEventBus);
         ModTileEntities.TILE_ENTITIES.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
-        ModFeatures.FEATURES.register(modEventBus);
         ModRecipeTypes.SERIALIZERS.register(modEventBus);
+        ModEntityTypes.ENTITIES.register(modEventBus);
         ModContainers.CONTAINERS.register(modEventBus);
 
 
